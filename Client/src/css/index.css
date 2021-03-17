@@ -59,3 +59,22 @@
     top: 280px;
     left: 100px;
   }
+  #vida {
+    position: relative;
+    top: 300px;
+    left: 85px;
+    width: 130px;
+  }
+  #vida2 {
+    position: absolute;
+    float: right;
+    top: 165px;
+    right: 85px;
+    width: 130px;
+  }
+  #nomPokemon {
+    text-align: center;
+  }
+  #nomPokemon2 {
+    text-align: center;
+  }
