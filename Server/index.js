@@ -1,31 +1,35 @@
-const Express = require("express");
+const api = require("./requests/getPokemons.js")
+const Express = require("express")
 const httpServer = require("http").Server(Express)
 const io=require("socket.io")(httpServer, {
     cors: { origin: "*", methods: ["GET","POST"] }
 });
 
 io.on("connection", socket =>  {
-    let UserName;
-     console.log("jugador conectado \n");    
+    let UserName
+     console.log("jugador conectado \n")  
 
      socket.on("pedirPokemon", function(msg, callback){
 
-          
-        callback(data);
-     });
+        let pokemons = api.getPokemons()
+        pokemons.then((success) => {
+            callback(success)
+        })
+        
+     })
 
      socket.on('disconnect', function(){
-         console.log(UId);
+         console.log(UId)
      })
-});
+})
 
 io.on("disconnect", socket => {
-    console.log(socket.id);
-});
+    console.log(socket.id)
+})
 
 
 
-httpServer.listen(3000, () => {});
+httpServer.listen(3000, () => {})
 
 
 var data = [{
