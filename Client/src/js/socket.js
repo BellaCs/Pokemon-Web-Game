@@ -11,9 +11,9 @@ socket.on('connect', function () {
 
 });
 
-export var pedirPokemons = ()  => new Promise(resolve =>{
+export var pedirPokemons = (userName)  => new Promise(resolve =>{
 
-    socket.emit("pedirPokemon", "3",function(pokeJson, si){
+    socket.emit("pedirPokemon", userName, function(pokeJson, si){
         resolve(pokeJson)
     });
 

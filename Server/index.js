@@ -5,15 +5,13 @@ const io=require("socket.io")(httpServer, {
 });
 
 io.on("connection", socket =>  {
-    let UId;
-     console.log("jugador conectado");    
+    let UserName;
+     console.log("jugador conectado \n");    
 
      socket.on("pedirPokemon", function(msg, callback){
 
-        UId = msg;
-         console.log("peticion de pokemons")
-        
-         callback(data);
+          
+        callback(data);
      });
 
      socket.on('disconnect', function(){
