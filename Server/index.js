@@ -1,4 +1,4 @@
-const api = require("./requests/getPokemons.js")
+const api = require("./requests/getPokemons")
 const Express = require("express")
 const httpServer = require("http").Server(Express)
 const io=require("socket.io")(httpServer, {
@@ -11,7 +11,7 @@ io.on("connection", socket =>  {
 
      socket.on("pedirPokemon", function(msg, callback){
 
-        let pokemons = api.getPokemons()
+        let pokemons = api()
         pokemons.then((success) => {
             callback(success)
         })
@@ -19,7 +19,7 @@ io.on("connection", socket =>  {
      })
 
      socket.on('disconnect', function(){
-         console.log(UId)
+         
      })
 })
 

@@ -32,7 +32,7 @@ var getPokemonFromDB = (PokemonID) => new Promise(resolve =>{
         
 })
 
-var getPosibleMovementsFromDB = (pokemonID) => new Promise(resolve =>{
+var getPosibleMovementsFromDB = (PokemonID) => new Promise(resolve =>{
         let query2 = "SELECT movement_id FROM pokemon_movement WHERE pokemon_id = " + PokemonID
         let response = [0]      
         conn.query(query2, function(error, results) {
@@ -79,7 +79,7 @@ async function getMovement(movementID){
         return await getMovementFromDB(movementID)
 }
 
-export async function getPokemons(){
+async function getPokemons(){
         return await getPokemonsPromise()
 }
 
@@ -96,3 +96,4 @@ var getPokemonsPromise = () => new Promise(resolve => {
 
 createConnection()
 
+module.exports = getPokemons()
