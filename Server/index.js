@@ -1,18 +1,24 @@
 const Express = require("express");
-const { disconnect } = require("process");
 const httpServer = require("http").Server(Express)
 const io=require("socket.io")(httpServer, {
     cors: { origin: "*", methods: ["GET","POST"] }
 });
 
 io.on("connection", socket =>  {
+    let UId;
      console.log("jugador conectado");    
 
      socket.on("pedirPokemon", function(msg, callback){
+
+        UId = msg;
          console.log("peticion de pokemons")
         
          callback(data);
      });
+
+     socket.on('disconnect', function(){
+         console.log(UId);
+     })
 });
 
 io.on("disconnect", socket => {
