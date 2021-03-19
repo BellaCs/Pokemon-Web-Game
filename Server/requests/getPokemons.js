@@ -4,7 +4,7 @@ var conn;
 
 function createConnection(){
         conn = mysql.createConnection({
-                host: "172.24.19.11",    // ip address of server running mysql
+                host: "localhost",    // ip address of server running mysql
                 user: "root",    // user name to your mysql database
                 password: "",   // corresponding password
                 database: "pokeDB"
@@ -32,14 +32,16 @@ var getPokemonFromDB = (PokemonID) => new Promise(resolve =>{
         
 })
 
-var getPosibleMovementsFromDB = (PokemonID) => new Promise(resolve =>{
+var getPosibleMovementsFromDB =(PokemonID) => new Promise(resolve =>{
         let query2 = "SELECT movement_id FROM pokemon_movement WHERE pokemon_id = " + PokemonID
         let response = [0]      
+        let result = [0]
         conn.query(query2, function(error, results) {
-		for (let i = 0; i < results.length; i++){
-		   response.push(results[i].movement_id)	
-		}
-        	resolve(response4)	
+                if(results!=undefined)result = results;
+                result.forEach(element=>{
+                        response.push(element.movement_id)
+                })
+        	resolve(response)	
 	});
 })
 
@@ -85,13 +87,17 @@ async function getPokemons(){
 
 var getPokemonsPromise = () => new Promise(resolve => {
     var pokemons = []
-    for (let i = 0; i < 6; i++) {
+        let i = 0;
+    while (i < 6) {
         let pokemon = getPokemon(Math.floor(Math.random() * 151))
         pokemon.then((success) => {
                 pokemons.push(success)
-        })        
+                i++;
+        })     
+        if(i=5)resolve(pokemons);   
     }
-    resolve(pokemons)
+
+    
 })
 
 createConnection()
