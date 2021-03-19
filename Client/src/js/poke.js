@@ -1,13 +1,17 @@
+import { userName } from "./inici.js";
 import * as socket from "./socket.js"
 var pokemons;
 var pokeballs;
+
 window.onload=function(){
     document.getElementById("pokemons").addEventListener("click",event => {
-        let pokeList = pedirPokemons();
+        let pokeList = pedirPokemons(userName);
         
         pokeList.then((sucsses)=>{
+            console.log(sucsses);
             pokemons = sucsses;
             mostrarPokemons();
+            
         })
         pokeballs = document.getElementsByClassName("selectPokeballs")
         for (let index = 0; index < pokeballs.length; index++) {
@@ -30,14 +34,16 @@ function mostrarPokemons() {
 function cambiarPokemon(pokeball) {
     let pokeImgId = pokeball.target.name;
     console.log(pokeImgId);
+    var ProgressBar1 = document.getElementById("health1");
+    var ProgressBar2 = document.getElementById("health2");
+    ProgressBar1.style.display = "inline";
+    ProgressBar2.style.display = "inline";
     document.getElementById('pokemon1').src = pokemons[pokeImgId].pokemon_sprites_front;
-    document.getElementById('pokemon2').src = pokemons[pokeImgId].pokemon_sprites_front;
     document.getElementById('nomPokemon').textContent = pokemons[pokeImgId].pokemon_name;
-    document.getElementById('nomPokemon2').textContent = pokemons[pokeImgId].pokemon_name;
-    document.getElementById("hab1").textContent = pokemons[pokeImgId].atacs[0].movement_name;
-    document.getElementById("hab2").textContent = pokemons[pokeImgId].atacs[1].movement_name;
-    document.getElementById("hab3").textContent = pokemons[pokeImgId].atacs[2].movement_name;
-    document.getElementById("hab4").textContent = pokemons[pokeImgId].atacs[3].movement_name;
+    document.getElementById("hab1").textContent = pokemons[pokeImgId].atacs[0].movement_name + " " + pokemons[pokeImgId].atacs[0].movement_pp;
+    document.getElementById("hab2").textContent = pokemons[pokeImgId].atacs[1].movement_name + " " + pokemons[pokeImgId].atacs[0].movement_pp;
+    document.getElementById("hab3").textContent = pokemons[pokeImgId].atacs[2].movement_name + " " + pokemons[pokeImgId].atacs[0].movement_pp;
+    document.getElementById("hab4").textContent = pokemons[pokeImgId].atacs[3].movement_name + " " + pokemons[pokeImgId].atacs[0].movement_pp;
 }
 
 
