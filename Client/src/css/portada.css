@@ -21,7 +21,7 @@ body {
 #mainPage{
    text-align: center;
    justify-content: center;
-   background: rgba(228, 253, 6, 0.438);
+   background: rgba(228, 253, 6, 0.26);
    padding: 50px;
    margin-top: 3%;
    border: solid;
@@ -29,11 +29,30 @@ body {
 }
 
 #clickToPlay{
-    padding: 80px;
-    background-color: rgba(22, 169, 189, 0.815);
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: rgba(255, 255, 255, 0.459);
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #0967b4;
+    width: 400px;
+    height: 150px;
+    margin: 40px;
+    font-family: defaultOne;
+    font-size: 30px;
     margin-top: 30%;
-    border: solid;
-}
+  }
+  #clickToPlay:hover{
+    background-color: #0967b4;
+    color: rgb(255, 255, 255);
+  }
 
 #clickToPlay h2 {
     color: black;
