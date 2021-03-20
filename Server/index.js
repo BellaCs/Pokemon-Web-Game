@@ -1,4 +1,3 @@
-
 const Express = require("express")
 const httpServer = require("http").Server(Express)
 const io=require("socket.io")(httpServer, {
@@ -150,9 +149,21 @@ var data = [{
                 "movement_type": 1
             },
             {
-                "movement_id": 6, "movement_name": "pay-day", "movement_accuracy": 100, "movement_power": 40, "movement_pp": 20, "movement_type": 1
+                "movement_id": 6, 
+                "movement_name": "pay-day", 
+                "movement_accuracy": 100, 
+                "movement_power": 40, 
+                "movement_pp": 20, 
+                "movement_type": 1
             },
-            { "movement_id": 7, "movement_name": "fire-punch", "movement_accuracy": 100, "movement_power": 75, "movement_pp": 15, "movement_type": 10 }
+            { 
+                "movement_id": 7, 
+                "movement_name": "fire-punch", 
+                "movement_accuracy": 100, 
+                "movement_power": 75, 
+                "movement_pp": 15, 
+                "movement_type": 10 
+            }
         ]
 },
 {
@@ -168,16 +179,76 @@ var data = [{
     "pokemon_sprites_back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/18.png",
     "atacs":
         [
-            { "movement_id": 13, "movement_name": "razor-wind", "movement_accuracy": 100, "movement_power": 80, "movement_pp": 10, "movement_type": 1 }, { "movement_id": 16, "movement_name": "gust", "movement_accuracy": 100, "movement_power": 40, "movement_pp": 35, "movement_type": 3 }, { "movement_id": 17, "movement_name": "wing-attack", "movement_accuracy": 100, "movement_power": 60, "movement_pp": 35, "movement_type": 3 }, { "movement_id": 18, "movement_name": "whirlwind", "movement_accuracy": null, "movement_power": null, "movement_pp": 20, "movement_type": 1 }
+            { 
+                "movement_id": 13, 
+                "movement_name": "razor-wind", 
+                "movement_accuracy": 100, 
+                "movement_power": 80, 
+                "movement_pp": 10, 
+                "movement_type": 1 
+            }, { 
+                "movement_id": 16, 
+                "movement_name": "gust", 
+                "movement_accuracy": 100, 
+                "movement_power": 40, 
+                "movement_pp": 35, 
+                "movement_type": 3 
+            }, { 
+                "movement_id": 17, 
+                "movement_name": "wing-attack", 
+                "movement_accuracy": 100, 
+                "movement_power": 60, 
+                "movement_pp": 35, 
+                "movement_type": 3 
+            }, { 
+                "movement_id": 18, 
+                "movement_name": "whirlwind", 
+                "movement_accuracy": null, 
+                "movement_power": null, 
+                "movement_pp": 20, 
+                "movement_type": 1 
+            }
 
         ]
 
 },
 {
-    "pokemon_id": 103, "pokemon_name": "exeggutor", "pokemon_stats_hp": 95, "pokemon_stats_attack": 95, "pokemon_stats_defense": 85, "pokemon_stats_special_attack": 125, "pokemon_stats_special_defense": 75, "pokemon_stats_speed": 55, "pokemon_sprites_front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/103.png", "pokemon_sprites_back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/103.png",
+    "pokemon_id": 103, 
+    "pokemon_name": "exeggutor", 
+    "pokemon_stats_hp": 95,
+     "pokemon_stats_speed": 55, 
+     "pokemon_sprites_front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/103.png", 
+     "pokemon_sprites_back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/103.png",
     "atacs":
         [
-            {"movement_id": 14, "movement_name": "swords-dance", "movement_accuracy": null, "movement_power": null, "movement_pp": 20, "movement_type": 1}, { "movement_id": 23, "movement_name": "stomp", "movement_accuracy": 100, "movement_power": 65, "movement_pp": 20, "movement_type": 1 }, { "movement_id": 29, "movement_name": "headbutt", "movement_accuracy": 100, "movement_power": 70, "movement_pp": 15, "movement_type": 1 }, { "movement_id": 36, "movement_name": "take-down", "movement_accuracy": 85, "movement_power": 90, "movement_pp": 20, "movement_type": 1 }
+            {
+                "movement_id": 14, 
+                "movement_name": "swords-dance", 
+                "movement_accuracy": null, 
+                "movement_power": null, 
+                "movement_pp": 20, 
+                "movement_type": 1
+            }, { 
+                "movement_id": 23, 
+                "movement_name": "stomp", 
+                "movement_accuracy": 100, 
+                "movement_power": 65, 
+                "movement_pp": 20, 
+                "movement_type": 1 
+            }, { 
+                "movement_id": 29, 
+                "movement_name": "headbutt", 
+                "movement_accuracy": 100, 
+                "movement_power": 70,
+                "movement_pp": 15, 
+                "movement_type": 1 
+            }, { 
+                "movement_id": 36, 
+                "movement_name": "take-down", 
+                "movement_accuracy": 85, 
+                "movement_power": 90, 
+                "movement_pp": 20, 
+                "movement_type": 1 }
         ]
     }
 ]
