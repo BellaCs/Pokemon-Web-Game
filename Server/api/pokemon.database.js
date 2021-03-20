@@ -1,14 +1,6 @@
-
-var mysql = require('mysql')
-var conn;
-
-function createConnection(){
-        conn = mysql.createConnection({
-                host: "localhost",    // ip address of server running mysql
-                user: "root",    // user name to your mysql database
-                password: "",   // corresponding password
-                database: "pokeDB"
-        })
+const mariadb = require('./db/db.js');
+const Pokemon = function(pokemon){
+        
 }
 
 var getMovementFromDB = (movementID) => new Promise(resolve =>{
@@ -26,13 +18,12 @@ var getPokemonFromDB = (PokemonID) => new Promise(resolve =>{
 	});
         let movements = getMovements(PokemonID)
         movements.then((success)=>{
-                response.movements = success
-                resolve(response)     
+                if(response != undefined)response.movements = success
         })
-        
+        resolve(response)
 })
 
-var getPosibleMovementsFromDB =(PokemonID) => new Promise(resolve =>{
+var getPosibleMovementsFromDB = (PokemonID) => new Promise(resolve =>{
         let query2 = "SELECT movement_id FROM pokemon_movement WHERE pokemon_id = " + PokemonID
         let response = [0]      
         let result = [0]
@@ -50,8 +41,11 @@ var getMovementsFromDB = (pokemonID) => new Promise(resolve =>{
         let movements = getPosibleMovements(pokemonID)
         let index = 0
         let movement
+        console.log(3)
         movements.then((success)=>{
+                console.log(2)
                 success.forEach(element => {
+                        console.log(1)
 	                if (index < 5) {
                                 movement = getMovement(element)
                                 movement.then((success)=>{
@@ -62,6 +56,7 @@ var getMovementsFromDB = (pokemonID) => new Promise(resolve =>{
        	        })    
                 resolve(response)
         })
+        
         
 })
 
@@ -87,19 +82,18 @@ async function getPokemons(){
 
 var getPokemonsPromise = () => new Promise(resolve => {
     var pokemons = []
-        let i = 0;
-    while (i < 6) {
+    for (let index = 0; index < 6; index++) {
+            
         let pokemon = getPokemon(Math.floor(Math.random() * 151))
         pokemon.then((success) => {
                 pokemons.push(success)
-                i++;
-        })     
-        if(i=5)resolve(pokemons);   
+               
+        })       
     }
-
+    resolve(pokemons)
     
 })
 
-createConnection()
+
 
 module.exports = getPokemons()

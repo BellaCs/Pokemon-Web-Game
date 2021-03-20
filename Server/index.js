@@ -1,16 +1,27 @@
 const Express = require("express")
 const httpServer = require("http").Server(Express)
 const io=require("socket.io")(httpServer, {
-    cors: { origin: "*", methods: ["GET","POST"] }
+    cors: { 
+        origin: "*", 
+        methods: ["GET","POST"]
+    }
 });
+const api = require("./api/pokemon.database")
+
 
 io.on("connection", socket =>  {
     let UserName
+    
      console.log("jugador conectado \n")  
 
      socket.on("pedirPokemon", function(msg, callback){
 
-        callback(data)
+        let pokemons = api
+        pokemons.then((success) =>{
+            callback(success)
+        })
+        
+        
         
      })
 
