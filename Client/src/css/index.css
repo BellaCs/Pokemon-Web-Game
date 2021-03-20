@@ -1,4 +1,9 @@
-.container {
+@font-face {
+  font-family: defaultOne;
+  src: url(../assets/PressStart2P-Regular.ttf);
+}
+
+  .container {
     width: 100%;
   }
   div.camp {
@@ -77,4 +82,88 @@
   }
   #nomPokemon2 {
     text-align: center;
+  }
+
+  body {
+    background-image: url(../assets/wallpaper.jpg);
+    font-family: defaultOne;
+  }
+
+  #mainDiv{
+    text-align: center;
+    justify-content: center;
+    background: rgba(228, 253, 6, 0.438);
+    padding: 50px;
+    margin-top: 3%;
+    border: solid;
+    height: 770px;
+  }
+
+  #iniciTitle {
+    color: rgb(108, 233, 233);
+    font-size: 70px;
+    
+  }
+
+  #iniciTitleDiv{
+    background-color: rgba(89, 0, 255, 0.774);
+    padding: 3px;
+    border: solid;
+  }
+
+  #nicknameFormDiv {
+    background-color: rgba(89, 0, 255, 0.774);
+    padding: 30px;
+    border: solid;
+    margin-top: 15px;
+  }
+  
+  #nicknameFormDiv  label{
+    font-size: 24px;
+    color: white;
+    display: inline-block;
+
+  }
+
+  #nicknameFormDiv input {
+    display: inline-block;
+    margin-left: 10px;
+    width: 20%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 24px 20px 12px 40px;
+    font-family: defaultOne;
+  }
+
+  #buttonsForNickname button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+    width: 300px;
+    height: 100px;
+    margin: 120px;
+    font-family: defaultOne;
+    font-size: 20px;
+  }
+
+  #buttonsForNickname button:hover {
+    background-color: #4CAF50;
+    color: rgb(255, 255, 255);
+    
   }
