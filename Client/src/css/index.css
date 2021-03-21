@@ -61,7 +61,6 @@ body {
   }
 
   #buttonsForNickname button {
- 
     border: none;
     color: white;
     padding: 16px 32px;
@@ -89,19 +88,24 @@ body {
   #gamePanel{
     justify-content: center;
     display: flex;
-    background-color: rgba(255, 255, 255, 0.158);
+    background-color: rgba(0, 0, 0, 0.527);
     padding: 20px;
     border: solid;
   }
   #battle-map{
     background-image: url(../assets/battle-background.gif);
     background-repeat: no-repeat;
-    height: 540px;
-    width: 1050px;
+    height: 500px;
+    width: 1000px;
     position: relative;
+    border: solid;
   }
-  .pokeballs{
+  .pokeballs {
     margin: 10px;
+    height: 215px;
+    border: solid;
+    padding: 10px;
+    background-color:  rgb(255, 255, 255);
   }
   #abilities button{
     background-color: #4CAF50; /* Green */
@@ -134,7 +138,7 @@ body {
 
 #abilities{
   margin-top: 10px;
-    background-color: rgba(255, 255, 255, 0.158);
+    background-color: rgba(0, 0, 0, 0.527);
     border: solid;
     height: 150px;
 }
@@ -175,5 +179,10 @@ body {
   height:300px;
   width: 300px;
   margin-bottom: 16%;
+
+}
+
+#pokeballs2 {
+  margin-top: 15%;
   
 }
