@@ -93,7 +93,7 @@ CREATE TABLE stats_relation
 CREATE TABLE type_table
 (
   type_id bigint NOT NULL,
-  type_name bigint,
+  type_name varchar(30),
   CONSTRAINT pk_type_table PRIMARY KEY (type_id)
 );
 

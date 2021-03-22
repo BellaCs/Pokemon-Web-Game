@@ -6,9 +6,9 @@ class fillDatabase:
     def __init__(self):
         self.conn = mariadb.connect(
             user = "root",
-            password = "patata",
+            password = "",
             host = "localhost",
-            database = "pokeDB"
+            database = "pokemongame"
         )
 
     

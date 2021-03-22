@@ -1,31 +1,36 @@
-const Express = require("express")
-const httpServer = require("http").Server(Express)
+const Express = require("express");
+const httpServer = require("http").Server(Express);
 const io=require("socket.io")(httpServer, {
-    cors: { origin: "*", methods: ["GET","POST"] }
+    cors: { 
+        origin: "*", 
+        methods: ["GET","POST"]
+    }
 });
+const api = require("./api/getFormatter/pokemonFormatter.socket");
+
 
 io.on("connection", socket =>  {
-    let UserName
-     console.log("jugador conectado \n")  
+       
+     console.log("jugador conectado \n"); 
 
-     socket.on("pedirPokemon", function(msg, callback){
-
-        callback(data)
+     socket.on("pedirPokemon", function(msg, callback){    
         
-     })
+        callback(api);
+        
+     });
 
      socket.on('disconnect', function(){
          
-     })
-})
+     });
+});
 
 io.on("disconnect", socket => {
-    console.log(socket.id)
-})
+    console.log(socket.id);
+});
 
 
 
-httpServer.listen(3000, () => {})
+httpServer.listen(3000, () => {});
 
 
 var data = [{
@@ -251,4 +256,4 @@ var data = [{
                 "movement_type": 1 }
         ]
     }
-]
+];
