@@ -4,7 +4,7 @@ window.onload=function(){
     document.getElementById("jugar").addEventListener("click", verificarNick)
 }
 function verificarNick() {
-    userName = document.getElementById("nick").value;
+    userName = document.getElementById("nickname").value;
     if (userName != "") 
         console.log("Correct");
         
@@ -13,3 +13,4 @@ function verificarNick() {
         event.preventDefault();
     }
 }
+

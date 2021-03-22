@@ -5,81 +5,59 @@
   <!--<script src="index.js"></script>-->
   <script type="module" src="../js/poke.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../css/index.css">
   
 </head>
-<body class="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500">
-  <div class="bg-gradient-to-r h-20 from-green-400 to-blue-500 ">
-    <span class="block"><h1 class="text-center text-5xl">PokeAPI</h1></span>
-  </div>
-  <br>
-  <div class="container">
-    <div>
-      <div class="pokemons">
-        <button id="pokemons" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-          Agafar Pokemons
-        </button>
+<body>
+<div class="mainDiv">
+  <div id="gamePanel">
+    <div class="pokeballs">
+      <div class="pok">
+        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
+        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
+      </div> 
+      <div class="pok">
+        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
+        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
+      </div> 
+      <div class="pok">
+        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
+        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
       </div>
-      <div class="pokeballs">
-        <div class="pok">
-          <img id="pok1" src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" width="50" height="50" class="selectPokeballs" name="0">
-          <img id="pok2" src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" width="50" height="50" class="selectPokeballs" name="1">
-        </div> 
-        <div class="pok">
-          <img id="pok3" src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" width="50" height="50" class="selectPokeballs" name="2">
-          <img id="pok4" src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" width="50" height="50" class="selectPokeballs" name="3">
-        </div> 
-        <div class="pok">
-          <img id="pok5" src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" width="50" height="50" class="selectPokeballs" name="4">
-          <img id="pok6" src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" width="50" height="50" class="selectPokeballs" name="5">
-        </div> 
+    </div>
+    <div id="battle-map">
+      <div id="p1-stats">
+        <p id="pokemon-1-name"> POKEMON NAME</p>
+        <p id="health1"> VIDA</p>
+      </div>  
+      <div id="p2-stats">
+        <p id="pokemon-1-name"> POKEMON NAME</p>
+        <p id="health2"> VIDA</p>
       </div>
-      <div class="camp">
-        <div id="vida">
-          <p id="nomPokemon"></p>
-          <progress style="display:none" id="health1" value="100" max="100"></progress>
-        </div>
-        <img id="pokemon2" src="" class="img1">
-        <div id="vida2">
-          <p id="nomPokemon2"></p>
-          <progress style="display:none" id="health2" value="100" max="100"></progress>
-        </div>
-        <img id="pokemon1" src="" class="img2">
-      </div>
-      <div class="jugadors">
-        <div class="pok">
-          <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" width="50" height="50" class="selectPokeballs">
-          <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" width="50" height="50" class="selectPokeballs">
-        </div> 
-        <div class="pok">
-          <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" width="50" height="50" class="selectPokeballs">
-          <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" width="50" height="50" class="selectPokeballs">
-        </div> 
-        <div class="pok">
-          <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" width="50" height="50" class="selectPokeballs">
-          <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" width="50" height="50" class="selectPokeballs">
-        </div> 
-      </div>
-      <div class="registre">
-        <p>***** Ha fet ** de dany a *******</p>
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/66.png" id="pokemon1">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/66.png" id="pokemon2">
+    </div>
+    <div class="pokeballs" id="pokeballs2">
+      <div class="pok">
+        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
+        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
+      </div> 
+      <div class="pok">
+        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
+        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
+      </div> 
+      <div class="pok">
+        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
+        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
       </div>
     </div>
   </div>
-  <div class="habilitats">
-    <button id="hab1" class="w-48 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-      Hab1
-    </button>
-    <button id="hab2" class="w-48 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-      Hab2
-    </button>
-    <br><br>
-    <button id="hab3" class="w-48 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-      Hab3
-    </button>
-    <button id="hab4" class="w-48 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-      Hab4
-    </button>
+  <div id="abilities">
+    <button id="hab1"> ABILITY 1</button>
+    <button id="hab2"> ABILITY 2</button>
+    <button id="hab3"> ABILITY 3</button>
+    <button id="hab4"> ABILITY 4</button>
   </div>
+</div>
 </body>
 </html>
