@@ -5,7 +5,7 @@
 
 
 body {
-  background-image: url(../assets/wallpaper.jpg);
+  background-image: url(https://mbellavista.s-ul.eu/pokeimg/FaWLBpEM);
   font-family: defaultOne;
 }
 
@@ -93,7 +93,7 @@ body {
     border: solid;
   }
   #battle-map{
-    background-image: url(../assets/battle-background.gif);
+    background-image: url(https://mbellavista.s-ul.eu/pokeimg/8xuTNQWm);
     background-repeat: no-repeat;
     height: 500px;
     width: 1000px;
@@ -138,9 +138,9 @@ body {
 
 #abilities{
   margin-top: 10px;
-    background-color: rgba(0, 0, 0, 0.527);
-    border: solid;
-    height: 150px;
+  background-color: rgba(0, 0, 0, 0.527);
+  border: solid;
+  height: 150px;
 }
 
 #p1-stats {
