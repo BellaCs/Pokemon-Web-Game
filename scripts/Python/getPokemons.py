@@ -1,10 +1,9 @@
 import requests
 import json
-import mariadb
 
 class getPokemons:
 
-    def getMovesList(gen):
+    def getMovesList(self, gen):
         
         try:
             response = requests.get("https://pokeapi.co/api/v2/generation/" + gen)
@@ -15,7 +14,7 @@ class getPokemons:
             print(gen)
             return None
 
-    def getPokemonList(gen):
+    def getPokemonList(self, gen):
         
         try:
             response = requests.get("https://pokeapi.co/api/v2/generation/" + gen)
@@ -26,7 +25,7 @@ class getPokemons:
             print(gen)
             return None
 
-    def getTypesList(gen):
+    def getTypesList(self, gen):
         
         try:
             response = requests.get("https://pokeapi.co/api/v2/generation/" + gen)
@@ -37,7 +36,7 @@ class getPokemons:
             print(gen)
             return None
 
-    def getPokemonSpecie(url):
+    def getPokemonSpecie(self, url):
         try:
             response = requests.get(url)
             pokemonSpecie = json.loads(response.text)
@@ -47,7 +46,7 @@ class getPokemons:
             print(url)
 
 
-    def getPokemonSource(name):
+    def getPokemonSource(self, name):
         try:
             response = requests.get("https://pokeapi.co/api/v2/pokemon/" + name)
             pokemonSource = json.loads(response.text)
@@ -57,7 +56,7 @@ class getPokemons:
             print(name)
             return None
 
-    def getMoveSource(url):
+    def getMoveSource(self, url):
         try:
             response = requests.get(url)
             moveSource = json.loads(response.text)
@@ -67,7 +66,7 @@ class getPokemons:
             print(url)
             return None
 
-    def getTypeSource(url):
+    def getTypeSource(self, url):
         try:
             response = requests.get(url)
             typeSource = json.loads(response.text)
