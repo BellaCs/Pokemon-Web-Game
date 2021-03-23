@@ -40,7 +40,7 @@ function cambiarPokemon(pokeball) {
     ProgressBar1.style.display = "inline";
     ProgressBar2.style.display = "inline";
     document.getElementById('pokemon1').src = pokemons[pokeImgId].pokemon_sprites_front;
-    document.getElementById('nomPokemon').textContent = pokemons[pokeImgId].pokemon_name;
+    document.getElementById('pokemon-1-name').textContent = pokemons[pokeImgId].pokemon_name;
     document.getElementById("hab1").textContent = pokemons[pokeImgId].atacs[0].movement_name + " " + pokemons[pokeImgId].atacs[0].movement_pp;
     document.getElementById("hab2").textContent = pokemons[pokeImgId].atacs[1].movement_name + " " + pokemons[pokeImgId].atacs[0].movement_pp;
     document.getElementById("hab3").textContent = pokemons[pokeImgId].atacs[2].movement_name + " " + pokemons[pokeImgId].atacs[0].movement_pp;

@@ -1,80 +1,188 @@
-.container {
-    width: 100%;
+@font-face {
+  font-family: defaultOne;
+  src: url(../assets/PressStart2P-Regular.ttf);
+}
+
+
+body {
+  background-image: url(https://mbellavista.s-ul.eu/pokeimg/FaWLBpEM);
+  font-family: defaultOne;
+}
+
+.mainDiv{
+  text-align: center;
+  justify-content: center;
+  background: rgba(228, 253, 6, 0.26);
+  padding: 50px;
+  margin-top: 3%;
+  border: solid;
+  height: 770px;
+}
+
+#iniciTitle {
+  color: rgb(66, 99, 209);
+  font-size: 70px;
+  
+}
+
+  #iniciTitleDiv{
+    background-color: rgba(0, 0, 0, 0.719);
+    padding: 3px;
+    border: solid;
   }
-  div.camp {
-    position: relative;
-    float: left;
-    left: 200px;
-    width: 550px;
-    height: 450px;
-    border: 3px solid black;
-    background-image: url("https://mbellavista.s-ul.eu/pokeimg/dzmkcl0e");
-  } 
-  div.jugadors {
-    position: relative;
-    float: left;
-    left: 210px;
-    width:200px;
-    height: 200px;
+
+  #nicknameFormDiv {
+    background-color: rgba(0, 0, 0, 0.705);
+    padding: 30px;
+    border: solid;
+    margin-top: 15px;
   }
-  div.registre {
-    position: relative;
-    float: right;
-    right: 50px;
-    width: 350px;
-    height: 450px;
-    border: 3px solid black;
-  } 
-  .habilitats {
-    position: relative;
-    float: left;
-    top: 10px;
-    left: 275px;
-    width: 450px;
+  
+  #nicknameFormDiv  label{
+    font-size: 24px;
+    color:  rgb(66, 99, 209);
+    display: inline-block;
+
   }
-  .pokemons {
-    position: absolute;
-    float: left;
-    top: 100px;
-    left: 20px;
+
+  #nicknameFormDiv input {
+    display: inline-block;
+    margin-left: 10px;
+    width: 20%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 24px 20px 12px 40px;
+    font-family: defaultOne;
+  }
+
+  #buttonsForNickname button {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    border: 2px solid rgb(66, 99, 209);
+    width: 300px;
+    height: 100px;
+    margin: 120px;
+    font-family: defaultOne;
+    font-size: 20px;
+  }
+
+  #buttonsForNickname button:hover {
+    background-color: rgb(66, 99, 209);
+    color: rgb(255, 255, 255);
+  }
+  #gamePanel{
+    justify-content: center;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.527);
+    padding: 20px;
+    border: solid;
+  }
+  #battle-map{
+    background-image: url(https://mbellavista.s-ul.eu/pokeimg/8xuTNQWm);
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 1000px;
+    position: relative;
+    border: solid;
   }
   .pokeballs {
-    position: absolute;
-    float: left;
-    top: 400px;
-    left: 90px;
+    margin: 10px;
+    height: 215px;
+    border: solid;
+    padding: 10px;
+    background-color:  rgb(255, 255, 255);
   }
-  .pok {
-    display: flex;
-  }
-  #pokemon2 {
-    position: relative;
-    float: right;
-    top: 150px;
-    right: 100px;
-  }
-  #pokemon1 {
-    position: relative;
-    float: left;
-    top: 280px;
-    left: 100px;
-  }
-  #vida {
-    position: relative;
-    top: 300px;
-    left: 85px;
-    width: 130px;
-  }
-  #vida2 {
-    position: absolute;
-    float: right;
-    top: 165px;
-    right: 85px;
-    width: 130px;
-  }
-  #nomPokemon {
+  #abilities button{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: rgba(255, 255, 255, 0.459);
+    padding: 16px 32px;
     text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4c56af;
+    width: 260px;
+    height: 80px;
+    margin: 40px;
+    font-family: defaultOne;
+    font-size: 14px;
   }
-  #nomPokemon2 {
-    text-align: center;
+  #abilities button:hover{
+    background-color: #4c4eaf;
+    color: rgb(255, 255, 255);
   }
+.selectPokeballs{
+  height: 70px;
+  width: 70px;
+}
+
+#abilities{
+  margin-top: 10px;
+  background-color: rgba(0, 0, 0, 0.527);
+  border: solid;
+  height: 150px;
+}
+
+#p1-stats {
+  background-color: white;
+  border: solid;
+  position: absolute;
+  padding: 10px;
+  margin-left: 56%;
+  margin-top: 33%;
+  border-radius: 10px;
+}
+#p2-stats {
+  background-color: white;
+  border: solid;
+  position: absolute;
+  padding: 10px;
+  margin-left: 25%;
+  margin-top: 3%;
+  border-radius: 10px;
+}
+#battle-map{
+  padding: 10px;
+}
+
+
+#pokemon1 {
+  position: relative;
+  height:300px;
+  width: 300px;
+  margin-top: 20%;
+  margin-right: 8%;
+}
+
+#pokemon2 {
+  position: relative;
+  height:300px;
+  width: 300px;
+  margin-bottom: 16%;
+
+}
+
+#pokeballs2 {
+  margin-top: 15%;
+  
+}
