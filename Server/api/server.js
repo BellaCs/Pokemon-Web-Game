@@ -4,3 +4,5 @@ var express = require("express"),
 
 
 app.listen(port);
+
+console.log('RESTful API server working on port: ' + port);
