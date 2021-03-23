@@ -1,8 +1,6 @@
 import "../../node_modules/socket.io-client/dist/socket.io.js"
 
-const socket = io("ws://localhost:3000", {
-    transports : ['websocket', 'polling', 'flashsocket']
-});
+const socket = io("ws://localhost:3000");
 
 
 socket.connect();
