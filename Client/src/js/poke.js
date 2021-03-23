@@ -1,11 +1,12 @@
-import { userName } from "./inici.js";
 import * as socket from "./socket.js"
 var pokemons;
 var pokeballs;
+var userNick = document.cookie;
 
 window.onload=function(){
+    console.log(userNick);
     document.getElementById("pokemons").addEventListener("click",event => {
-        let pokeList = pedirPokemons(userName);
+        let pokeList = pedirPokemons(userNick);
         
         pokeList.then((sucsses)=>{
             console.log(sucsses);
