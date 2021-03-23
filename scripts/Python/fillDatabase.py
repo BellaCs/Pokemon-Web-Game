@@ -13,21 +13,21 @@ class fillDatabase:
 
     
     def savePokemonsDB(self, gen):
-        pokemonList = getPokemons.getPokemonList(str(gen))
-        movesList = getPokemons.getMovesList(str(gen))
-        typeList = getPokemons.getTypesList(str(gen))
+        pokemonList = getPokemons.getPokemonList(getPokemons, str(gen))
+        movesList = getPokemons.getMovesList(getPokemons, str(gen))
+        typeList = getPokemons.getTypesList(getPokemons, str(gen))
         if not typeList == None:
             for typep in typeList:
-                typeSource = getPokemons.getTypeSource(typep["url"])
+                typeSource = getPokemons.getTypeSource(getPokemons, typep["url"])
                 self.saveTypeInDataBase(typeSource)
         if not movesList == None:
             for move in movesList:
-                moveSource = getPokemons.getMoveSource(move["url"])
+                moveSource = getPokemons.getMoveSource(getPokemons, move["url"])
                 self.saveMoveInDataBase(moveSource)
         if not pokemonList == None:
             for pokemon in pokemonList:
-                pokemonSpecie = getPokemons.getPokemonSpecie(pokemon["url"])
-                pokemonSource = getPokemons.getPokemonSource(pokemonSpecie["name"])
+                pokemonSpecie = getPokemons.getPokemonSpecie(getPokemons, pokemon["url"])
+                pokemonSource = getPokemons.getPokemonSource(getPokemons, pokemonSpecie["name"])
                 self.savePokemonInDataBase(pokemonSource)
                 pokemonMoveList = pokemonSource["moves"]
                 for move in pokemonMoveList:
