@@ -1,19 +1,22 @@
 const movementsDB = require("../db/models/extra/movements.database");
-const getMovement = require("../getFormatter/movementFormatter.socket");
-var exports;
-exports.getMovements = (pokemon_id) => {
+
+exports.getMovements = (pokemon_id, result) => {
     var movements = [];
-        movementsDB.findById(pokemon_id,(error, result) =>{
+        movementsDB.findById(pokemon_id,(error, results) =>{
             if(error== null){
-                result.forEach(element => {
-                    movements.push(getMovement(element));
+                results.forEach(element => {
+                    movements.push(element.movement_id);
                 });
+                result(movements);
+                return;
             } else{ 
                 console.log(error);
+                result(error);
+                return;
             }
+            
         });                 
     
-    return movements;
-}
+    
+};
 
-module.exports = exports;
