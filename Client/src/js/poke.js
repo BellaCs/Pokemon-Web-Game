@@ -33,12 +33,14 @@ function mostrarPokemons() {
 function cambiarPokemon(pokeball) {
     let pokeImgId = pokeball.target.name;
     console.log(pokeImgId);
+    pokeImgId--;
     var ProgressBar1 = document.getElementById("health1");
     var ProgressBar2 = document.getElementById("health2");
     ProgressBar1.style.display = "inline";
     ProgressBar2.style.display = "inline";
     document.getElementById('pokemon1').src = JSON.parse(pokemons[pokeImgId]).pokemon_sprites_front;
     document.getElementById('pokemon-1-name').textContent = JSON.parse(pokemons[pokeImgId]).pokemon_name;
+    document.getElementById('health1').textContent = JSON.parse(pokemons[pokeImgId]).pokemon_stats_hp + "/" + JSON.parse(pokemons[pokeImgId]).pokemon_stats_hp;
     document.getElementById("hab1").textContent = JSON.parse(pokemons[pokeImgId]).atacs[0].movement_name + " " + JSON.parse(pokemons[pokeImgId]).atacs[0].movement_pp;
     document.getElementById("hab2").textContent = JSON.parse(pokemons[pokeImgId]).atacs[1].movement_name + " " + JSON.parse(pokemons[pokeImgId]).atacs[0].movement_pp;
     document.getElementById("hab3").textContent = JSON.parse(pokemons[pokeImgId]).atacs[2].movement_name + " " + JSON.parse(pokemons[pokeImgId]).atacs[0].movement_pp;
