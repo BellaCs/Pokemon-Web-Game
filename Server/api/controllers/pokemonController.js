@@ -1,18 +1,7 @@
 var pokemonFormatter = require("../getFormatter/pokemonFormatter.socket");
 
-exports.get_six_pokemon = function(req, res){
-    let pokemons;
-    res.addTrailers({"Access-Control-Allow-Origin" : "*"});
-    pokemons = pokemonFormatter.getPokemons;
-    if(pokemons != undefined){
-        res.json(pokemons);
-    }else{
-        res.send(404);
-    }
-    return;
-};
-
 exports.read_a_pokemon = function(req, res){
+    res.addTrailers({"Access-Control-Allow-Origin": "*"});
     pokemonFormatter.getPokemonById(req.params.pokemonId, pokemon => {
         if(pokemon != undefined){
             res.json(pokemon);
@@ -21,6 +10,6 @@ exports.read_a_pokemon = function(req, res){
         }
     return;
     });
-    //res.header.add("Access-Control-Allow-Origin", "*");
+    
     
 };
