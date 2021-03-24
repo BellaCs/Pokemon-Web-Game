@@ -12,7 +12,7 @@ const Pokemon = function (pokemon) {
 }
 
 Pokemon.findById = (PokemonID, result) => {
-        mariadb.query(`"SELECT * FROM pokemon WHERE pokemon_id = " + ${PokemonID}`, (err, res) => {
+        mariadb.query("SELECT * FROM pokemon WHERE pokemon_id = " + PokemonID, (err, res) => {
                 if (err) {
                         console.log("error: ", err);
                         result(err, null);
