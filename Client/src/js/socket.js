@@ -41,6 +41,10 @@ socket.on('connect', function () {
         console.log(msg);
     });
 
+    socket.on("FIN" + partida, function(msg){
+        
+    });
+
     /*socket.emit("pedirPokemon", "userName", function(pokeJson, si){
         resolve(pokeJson)
     });*/
