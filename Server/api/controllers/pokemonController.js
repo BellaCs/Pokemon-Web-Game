@@ -13,12 +13,14 @@ exports.get_six_pokemon = function(req, res){
 };
 
 exports.read_a_pokemon = function(req, res){
-    let pokemon = pokemonFormatter.getPokemonById(req.params.pokemonId);
-    //res.header.add("Access-Control-Allow-Origin", "*");
-    if(pokemon != undefined){
-        res.json(pokemon);
-    }else{
-        res.send(404);
-    }
+    pokemonFormatter.getPokemonById(req.params.pokemonId, pokemon => {
+        if(pokemon != undefined){
+            res.json(pokemon);
+        }else{
+            res.sendStatus(404);
+        }
     return;
+    });
+    //res.header.add("Access-Control-Allow-Origin", "*");
+    
 };
