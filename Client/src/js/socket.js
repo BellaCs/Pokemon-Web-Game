@@ -11,14 +11,6 @@ socket.on('connect', function () {
 
 });
 
-export var pedirPokemons = (userName)  => new Promise(resolve =>{
-
-    socket.emit("pedirPokemon", "userName", function(pokeJson, si){
-        resolve(pokeJson)
-    });
-
-})
-
 socket.on('disconnect', function () {
     console.log('disconnected');
 });

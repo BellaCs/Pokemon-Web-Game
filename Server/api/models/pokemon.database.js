@@ -9,6 +9,7 @@ const Pokemon = function (pokemon) {
         this.pokemon_stats_speed = pokemon.pokemon_stats_speed;
         this.pokemon_sprites_front = pokemon.pokemon_sprites_front;
         this.pokemon_sprites_back = pokemon.pokemon_sprites_back;
+        return this;
 }
 
 Pokemon.findById = (PokemonID, result) => {
@@ -25,7 +26,7 @@ Pokemon.findById = (PokemonID, result) => {
                         return;
                 }
 
-                // not found Customer with the id
+                
                 result({ kind: "not_found" }, null);
         });
 };
