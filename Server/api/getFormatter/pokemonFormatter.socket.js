@@ -15,7 +15,7 @@ exports.getPokemons = (response) => {
         });           
                
     }
-    response(resposta);
+    response(pokemons);
     return;
 }
 
@@ -24,7 +24,7 @@ exports.getPokemonById = (pokemonId) => {
 
         pokemonDB.findById(pokemonId,(error, result) =>{
             if(error == null){
-                pokemons.push(JSON.stringify(result));
+                pokemon = JSON.stringify(result);
 
                 console.log("Pokemon: " + result);
             }else{
@@ -32,6 +32,6 @@ exports.getPokemonById = (pokemonId) => {
             }
         });           
                
-    return pokemons;
+    return pokemon;
     
 }
