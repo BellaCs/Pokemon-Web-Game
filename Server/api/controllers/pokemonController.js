@@ -3,15 +3,11 @@ var pokemonFormatter = require("../getFormatter/pokemonFormatter.socket");
 exports.get_six_pokemon = function(req, res){
     let pokemons;
     res.headers.add("Access-Control-Allow-Origin", "*");
-    pokemonFormatter.getPokemons(response => {
-        pokemons = response;
-    });
+    pokemons = pokemonFormatter.getPokemons;
     if(pokemons != undefined){
-        
-        res.json(pokemons);
+        res.json(pokemon);
     }else{
-        
-        res.send("error");
+        res.send(404);
     }
     return;
 };

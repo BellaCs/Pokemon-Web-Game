@@ -1,6 +1,6 @@
 const pokemonDB = require("../models/pokemon.database");
 
-exports.getPokemons = (response) => {
+exports.getPokemons = () => {
     var pokemons = []
     for (let index = 0; index < 6; index++) {
             
@@ -15,8 +15,7 @@ exports.getPokemons = (response) => {
         });           
                
     }
-    response(pokemons);
-    return;
+    return pokemons;
 }
 
 exports.getPokemonById = (pokemonId) => {
