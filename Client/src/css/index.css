@@ -99,6 +99,7 @@ body {
     width: 1000px;
     position: relative;
     border: solid;
+    
   }
   .pokeballs {
     margin: 10px;
@@ -185,4 +186,23 @@ body {
 #pokeballs2 {
   margin-top: 15%;
   
+}
+.btn-text {
+  vertical-align: middle;
+  font-family: 'Corben';
+  font-size: 580%;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.btn{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.mapa {
+  display: none;
 }
