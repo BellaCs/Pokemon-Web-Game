@@ -13,29 +13,36 @@
   <div id="gamePanel">
     <div class="pokeballs">
       <div class="pok">
-        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
-        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
+        <img id="pok1" src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs" name="1">
+        <img id="pok2" src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs" name="2">
       </div> 
       <div class="pok">
-        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
-        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
+        <img id="pok3" src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs" name="3">
+        <img id="pok4" src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs" name="4">
       </div> 
       <div class="pok">
-        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
-        <img src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs">
+        <img id="pok5" src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs" name="5">
+        <img id="pok6" src="https://mbellavista.s-ul.eu/pokeimg/IqEl42f3" class="selectPokeballs" name="6">
       </div>
     </div>
     <div id="battle-map">
-      <div id="p1-stats">
-        <p id="pokemon-1-name"> POKEMON NAME</p>
-        <p id="health1"> VIDA</p>
-      </div>  
-      <div id="p2-stats">
-        <p id="pokemon-1-name"> POKEMON NAME</p>
-        <p id="health2"> VIDA</p>
+      <div id="divJugar" class="wrapper">
+        <div class="btn btn-large btn-primary" id="oujh-button">
+          <button id="jugar" onclick="prova()">JUGAR</button>
+        </div>
       </div>
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/66.png" id="pokemon1">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/66.png" id="pokemon2">
+      <div class="mapa">
+        <div id="p1-stats">
+          <p id="pokemon-1-name"> POKEMON NAME</p>
+          <input type="range" id="health1" value="0">
+        </div>  
+        <div id="p2-stats">
+          <p id="pokemon-2-name"> POKEMON NAME</p>
+          <input type="range" id="health2" value="0">
+        </div>
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/66.png" id="pokemon1">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/66.png" id="pokemon2">
+      </div>
     </div>
     <div class="pokeballs" id="pokeballs2">
       <div class="pok">
@@ -59,5 +66,15 @@
     <button id="hab4"> ABILITY 4</button>
   </div>
 </div>
+<!--<script>
+  function prova() {
+    document.getElementById("divJugar").style.display = "none";
+    document.getElementsByClassName("mapa")[0].style.display = "block"; 
+    document.getElementById("health1").disabled = true;
+    document.getElementById("health2").disabled = true;  
+    document.getElementById("health1").max = 100;  
+    document.getElementById("health1").value = 50;
+  }
+</script>-->
 </body>
 </html>
