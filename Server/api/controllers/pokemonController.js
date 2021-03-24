@@ -5,7 +5,7 @@ exports.get_six_pokemon = function(req, res){
     res.addTrailers({"Access-Control-Allow-Origin" : "*"});
     pokemons = pokemonFormatter.getPokemons;
     if(pokemons != undefined){
-        res.json(pokemon);
+        res.json(pokemons);
     }else{
         res.send(404);
     }
