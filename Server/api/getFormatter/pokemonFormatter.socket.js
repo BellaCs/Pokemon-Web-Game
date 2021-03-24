@@ -19,6 +19,7 @@ exports.getPokemons = () => {
 }
 
 exports.getPokemonById = (pokemonId, res) => {
+    console.log(pokemonId);
     var pokemon;
 
         pokemonDB.findById(pokemonId,(error, result) =>{
