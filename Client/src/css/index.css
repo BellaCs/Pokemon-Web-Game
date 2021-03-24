@@ -108,7 +108,7 @@ body {
     padding: 10px;
     background-color:  rgb(255, 255, 255);
   }
-  #abilities button{
+  #abilities button, #jugar{
     background-color: #4CAF50; /* Green */
     border: none;
     color: rgba(255, 255, 255, 0.459);
@@ -128,14 +128,22 @@ body {
     font-family: defaultOne;
     font-size: 14px;
   }
+  #jugar {
+    font-size: 20px;
+  }
   #abilities button:hover{
     background-color: #4c4eaf;
+    color: rgb(255, 255, 255);
+  }
+  #jugar:hover{
+    background-color: #9e1616;
     color: rgb(255, 255, 255);
   }
 .selectPokeballs{
   height: 70px;
   width: 70px;
 }
+
 
 #abilities{
   margin-top: 10px;
@@ -204,5 +212,79 @@ body {
   transform: translateX(-50%) translateY(-50%);
 }
 .mapa {
+  display: none;
+}
+
+input[type="range"] { 
+  margin: auto;
+  -webkit-appearance: none;
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  width: 200px;
+  cursor: pointer;
+  border-radius: 0; /* iOS */
+  border: solid black;
+}
+
+::-webkit-slider-runnable-track {
+  background: rgb(190, 2, 2);
+}
+
+/*
+* 1. Set to 0 width and remove border for a slider without a thumb
+*/
+::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 0px; /* 1 */
+  height: 40px;
+  background: rgba(255, 255, 255, 0);
+  box-shadow: -100vw 0 0 100vw rgb(8, 206, 35);
+  border: 0px solid rgba(0, 0, 0, 0); /* 1 */
+}
+
+::-moz-range-track {
+  height: 40px;
+  background: rgba(221, 221, 221, 0);
+}
+
+::-moz-range-thumb {
+  background: rgba(255, 255, 255, 0);
+  height: 40px;
+  width: 20px;
+  border: 3px solid rgba(153, 153, 153, 0);
+  border-radius: 0 !important;
+  box-shadow: -100vw 0 0 100vw rgb(8, 206, 35);
+  box-sizing: border-box;
+}
+
+::-ms-fill-lower { 
+  background: rgb(8, 206, 35);
+}
+
+::-ms-thumb { 
+  background: rgba(255, 255, 255, 0);
+  border: 2px solid rgba(153, 153, 153, 0);
+  height: 40px;
+  width: 20px;
+  box-sizing: border-box;
+}
+
+::-ms-ticks-after { 
+  display: none; 
+}
+
+::-ms-ticks-before { 
+  display: none; 
+}
+
+::-ms-track { 
+  background: rgba(221, 221, 221, 0);
+  color: transparent;
+  height: 40px;
+  border: none;
+}
+
+::-ms-tooltip { 
   display: none;
 }

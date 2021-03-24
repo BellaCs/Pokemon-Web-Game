@@ -28,17 +28,17 @@
     <div id="battle-map">
       <div id="divJugar" class="wrapper">
         <div class="btn btn-large btn-primary" id="oujh-button">
-          <button id="jugar" class="btn-text" >JUGAR</button>
+          <button id="jugar" onclick="prova()">JUGAR</button>
         </div>
       </div>
       <div class="mapa">
         <div id="p1-stats">
           <p id="pokemon-1-name"> POKEMON NAME</p>
-          <p id="health1"> VIDA</p>
+          <input type="range" id="health1" value="0">
         </div>  
         <div id="p2-stats">
           <p id="pokemon-2-name"> POKEMON NAME</p>
-          <p id="health2"> VIDA</p>
+          <input type="range" id="health2" value="0">
         </div>
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/66.png" id="pokemon1">
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/66.png" id="pokemon2">
@@ -66,5 +66,15 @@
     <button id="hab4"> ABILITY 4</button>
   </div>
 </div>
+<!--<script>
+  function prova() {
+    document.getElementById("divJugar").style.display = "none";
+    document.getElementsByClassName("mapa")[0].style.display = "block"; 
+    document.getElementById("health1").disabled = true;
+    document.getElementById("health2").disabled = true;  
+    document.getElementById("health1").max = 100;  
+    document.getElementById("health1").value = 50;
+  }
+</script>-->
 </body>
 </html>
