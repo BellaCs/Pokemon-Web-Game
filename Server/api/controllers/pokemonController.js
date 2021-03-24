@@ -4,7 +4,7 @@ exports.read_a_pokemon = function(req, res){
     pokemonFormatter.getPokemonById(req.params.pokemonId, pokemon => {
         if(pokemon != undefined){
             res
-                .writeHead(200, {"message":"success"},{
+                .setHeader({
                     "Access-Control-Allow-Origin" : "*"
                 })
                 .json(pokemon);
