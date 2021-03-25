@@ -8,7 +8,7 @@ exports.create_game = (req, res) => {
             let gameId = {
                 "gameId" : result
             }
-            res(gameId);
+            res.end(gameId);
         } else {
             res.sendStatus(404);
         }
