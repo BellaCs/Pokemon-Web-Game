@@ -8,7 +8,7 @@ const movementToClient = function (movement) {
 
 exports.getMovementToClient = (movement_id, response) => {
         movementDB.findById(movement_id,(error, result) =>{
-            if(error!= null){
+            if(error == null){
                 console.log("Moviment: " + result);
                 response(null, movementToClient(result));
                 return;
