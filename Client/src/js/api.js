@@ -4,7 +4,6 @@ export function getPokemon(id, callback) {
     xmlHttp.setRequestHeader('Content-Type', 'application/json');
     xmlHttp.onload = function () {
        //pasem el retorn a la funció callback
-       console.log(this.responseText);
        callback(this.responseText);
        
     };

@@ -1,6 +1,6 @@
 import * as api from "./api.js";
 
-export var pokemons=[];
+ var pokemons=[];
 
 var  jugar_btn, 
         text_input, 
@@ -28,6 +28,8 @@ function goToPlay(event){
         user.nick = text_input.value;       
         console.log(user); 
         localStorage.setItem("userName", user);
+        console.log( JSON.stringify(pokemons));
+        localStorage.setItem("pokemons", JSON.stringify(pokemons));
         window.location.href="index.html";
     } else {
         alert("Abans de jugar has de posar un User Name")
@@ -35,10 +37,10 @@ function goToPlay(event){
     }
     
 }
-function randomPokemons(){
+async function randomPokemons(){
     for (let i = 0; i < 6; i++) {
         let pokemonId = Math.floor(Math.random() * 151 + 1);
-        api.getPokemon(pokemonId, result =>{
+        await api.getPokemon(pokemonId, result =>{
             pokemons.push(result)
         })
       }
