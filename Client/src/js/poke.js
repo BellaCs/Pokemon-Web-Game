@@ -22,7 +22,6 @@ window.onload = function () {
     setEventListeners();
     loadPokemonToVar();
     mostrarPokemons();
-    disableTurn();
 }
 
 function getUserFromLocal() {
@@ -59,19 +58,24 @@ function getDOMElements() {
     pokemonImg5 = document.getElementById("pok5");
     pokemonImg6 = document.getElementById("pok6");
     oponentStatsShow = document.getElementById("p2-stats");
+    DOMhabilitat1 = document.getElementById("hab1");
+    DOMhabilitat2 = document.getElementById("hab2");
+    DOMhabilitat3 = document.getElementById("hab3");
+    DOMhabilitat4 = document.getElementById("hab4");
 }
 
 function loadPokemonToVar() {
     console.log(pokemons);
-    pokemon1 = pokemons[0];
-    pokemon2 = pokemons[1];
-    pokemon3 = pokemons[2];
-    pokemon4 = pokemons[3];
-    pokemon5 = pokemons[4];
-    pokemon6 = pokemons[5];
+    pokemon1 = JSON.parse(pokemons[0]);
+    pokemon2 = JSON.parse(pokemons[1]);
+    pokemon3 = JSON.parse(pokemons[2]);
+    pokemon4 = JSON.parse(pokemons[3]);
+    pokemon5 = JSON.parse(pokemons[4]);
+    pokemon6 = JSON.parse(pokemons[5]);
 }
 
 function mostrarPokemons() {
+    console.log(pokemon1.pokemon_id);
     pokemonImg1.src = pokemon1.pokemon_sprites_front;
     pokemonImg2.src = pokemon2.pokemon_sprites_front;
     pokemonImg3.src = pokemon3.pokemon_sprites_front;
@@ -81,46 +85,48 @@ function mostrarPokemons() {
 }
 
 function changeEvent(pokemonTarget) {
-    pokemonChosed = pokemonTarget.target.value;
+    console.log("si");
+    let pokemonChosed = pokemonTarget.target.name;
+    console.log(pokemonChosed);
     if (playing) {
 
     } else {
         if (selectedPokemonImg != null) selectedPokemonImg.style.backgroundColor = "white";
         switch (pokemonChosed) {
-            case 1:
+            case "1":
                 setPokemonDetails(pokemon1, 1);
                 firstPokemon = pokemon1;
-                selectedPokemonImg = pokemonImg1;
+                pokemonImg1.style.backgroundColor = "lightgrey";
                 break;
-            case 2:
+            case "2":
                 setPokemonDetails(pokemon2, 2);
                 firstPokemon = pokemon2;
-                selectedPokemonImg = pokemonImg2;
+                pokemonImg2.style.backgroundColor = "lightgrey";
                 break;
-            case 3:
+            case "3":
                 setPokemonDetails(pokemon3, 3);
                 firstPokemon = pokemon3;
-                selectedPokemonImg = pokemonImg3;
+                pokemonImg3.style.backgroundColor = "lightgrey";
                 break;
-            case 4:
+            case "4":
                 setPokemonDetails(pokemon4, 4);
                 firstPokemon = pokemon4;
-                selectedPokemonImg = pokemonImg4;
+                pokemonImg4.style.backgroundColor = "lightgrey";
                 break;
-            case 5:
+            case "5":
                 setPokemonDetails(pokemon5, 5);
                 firstPokemon = pokemon5;
-                selectedPokemonImg = pokemonImg5;
+                pokemonImg5.style.backgroundColor = "lightgrey";
                 break;
-            case 6:
+            case "6":
                 setPokemonDetails(pokemon6, 6);
                 firstPokemon = pokemon6;
-                selectedPokemonImg = pokemonImg6;
+                pokemonImg6.style.backgroundColor = "lightgrey";
                 break;
             default:
                 break;
         }
-        selectedPokemonImg.style.backgroundColor = "grey";
+       //selectedPokemonImg.style.backgroundColor = "grey";
     }
 }
 
@@ -197,6 +203,7 @@ function buscarPartida() {
         ProgressBar1.style.display = "inline";
         ProgressBar2.style.display = "inline";
         parseUser();
+        disableTurn();
         socket.buscarPartida(user, (status) => {
             console.log(status);
         });
@@ -213,6 +220,7 @@ export function initGame() {
 }
 
 function setPokemonDetails(pokemonToDisplay, pokeSelectId) {
+    console.log("detail" + pokeSelectId);
     ProgressBar1.max = JSON.parse(pokemons[pokeSelectId - 1]).pokemon_stats_hp;
     selectedPokemonId = pokemonToDisplay.pokemon_id;
     pokemonMapaImg.src = pokemonToDisplay.pokemon_sprites_back;
@@ -222,10 +230,10 @@ function setPokemonDetails(pokemonToDisplay, pokeSelectId) {
     habilitat2 = pokemonToDisplay.atacs[1];
     habilitat3 = pokemonToDisplay.atacs[2];
     habilitat4 = pokemonToDisplay.atacs[3];
-    DOMhabilitat1.textContent = habilitat1.movement_name + " \n " + habilitat1.movement_pp + " / " + pokemons[pokeSelectId - 1].atacs[0].movement_pp;
-    DOMhabilitat2.textContent = habilitat2.movement_name + " \n " + habilitat1.movement_pp + " / " + pokemons[pokeSelectId - 1].atacs[1].movement_pp;
-    DOMhabilitat3.textContent = habilitat3.movement_name + " \n " + habilitat1.movement_pp + " / " + pokemons[pokeSelectId - 1].atacs[2].movement_pp;
-    DOMhabilitat4.textContent = habilitat4.movement_name + " \n " + habilitat1.movement_pp + " / " + pokemons[pokeSelectId - 1].atacs[3].movement_pp;
+    DOMhabilitat1.textContent = habilitat1.movement_name + " \n " + habilitat1.movement_pp + " / " + JSON.parse(pokemons[pokeSelectId - 1]).atacs[0].movement_pp;
+    DOMhabilitat2.textContent = habilitat2.movement_name + " \n " + habilitat2.movement_pp + " / " + JSON.parse(pokemons[pokeSelectId - 1]).atacs[1].movement_pp;
+    DOMhabilitat3.textContent = habilitat3.movement_name + " \n " + habilitat3.movement_pp + " / " + JSON.parse(pokemons[pokeSelectId - 1]).atacs[2].movement_pp;
+    DOMhabilitat4.textContent = habilitat4.movement_name + " \n " + habilitat4.movement_pp + " / " + JSON.parse(pokemons[pokeSelectId - 1]).atacs[3].movement_pp;
 }
 
 function setPokemonDetailsForOponent(pokemonToDisplay, PokemonRaw) {
@@ -236,6 +244,7 @@ function setPokemonDetailsForOponent(pokemonToDisplay, PokemonRaw) {
 }
 
 function parseUser() {
+    console.log(user);
     user.player_first_pokemon = firstPokemon.pokemon_id;
     user.player_pokemon1 = pokemon1.pokemon_id;
     user.player_pokemon2 = pokemon2.pokemon_id;

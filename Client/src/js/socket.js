@@ -8,6 +8,7 @@ var partidaId,userId;
 socket.connect();
 
 socket.on('connect', function () {
+    console.log("hola")
 
     socket.emit("attackEvent", function(daño_final, si){
         console.log(daño_final);
