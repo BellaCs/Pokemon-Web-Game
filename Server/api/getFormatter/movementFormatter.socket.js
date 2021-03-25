@@ -1,14 +1,21 @@
-const movementDB = require("../db/models/movement.database");
+const movementDB = require("../models/movement.database");
 
-exports.getMovement = (movement_id, result) => {
-        movementDB.findById(movement_id,(error, results) =>{
+const movementToClient = function (movement) {
+    this.movement_id = movement.movement_id;
+    this.movement_name = movement.movement_name;
+    this.movement_pp = movement.movement_pp;
+}
+
+exports.getMovementToClient = (movement_id, response) => {
+        movementDB.findById(movement_id,(error, result) =>{
             if(error!= null){
-                console.log("Moviment: " + results);
-                result(results);
+                console.log("Moviment: " + result);
+                response(null, movementToClient(result));
                 return;
             }else{
                 console.log(error);
-                result(error)
+                response(error, null);
+                return;
             }
             
             

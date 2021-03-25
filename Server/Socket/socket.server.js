@@ -7,29 +7,11 @@ const io=require("socket.io")(httpServer, {
     }
 });
 var partidaApi = {
-    "partida_id": "2",
-    "jugador_1": "0",
-    "jugador_1_pokemons": [
-        {
-            "pokemon_1": "0",
-            "pokemon_2": "0",
-            "pokemon_3": "0",
-            "pokemon_4": "0",
-            "pokemon_5": "0",
-            "pokemon_6": "0"
-        }
-    ], 
-    "jugador_2": "0",
-    "jugador_2_pokemons": [
-        {
-            "pokemon_1": "0",
-            "pokemon_2": "0",
-            "pokemon_3": "0",
-            "pokemon_4": "0",
-            "pokemon_5": "0",
-            "pokemon_6": "0"
-        }
-    ]
+    "partida_id": null,
+    "jugador_1": null,
+    "jugador_1_pokemons": [], 
+    "jugador_2": null,
+    "jugador_2_pokemons": []
 }; 
 
 var daño = 43;

@@ -11,7 +11,7 @@ exports.Movements = (PokemonID, result) => {
                 }
 
                 if (res.length) {
-                        console.log("found customer: ", res[0]);
+                        console.log("found customer: ", res);
                         result(null, res);
                         return;
                 }

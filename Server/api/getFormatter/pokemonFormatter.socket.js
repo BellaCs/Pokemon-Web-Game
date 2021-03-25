@@ -1,22 +1,69 @@
-const pokemonDB = require("../db/models/pokemon.database");
-const movementFormatter = require("../getFormatter/movementsFormatter.socket");
-function getPokemons(){
-    var pokemons = []
-    for (let index = 0; index < 6; index++) {
-        let pokemon_id = Math.floor(Math.random() * 151);
-        pokemonDB.findById(pokemon_id,(error, result) =>{
-            if(error == null){
-                pokemons.push(JSON.stringify(result));
-                console.log("Pokemon: " + result);
-                res(pokemon);
-            }else{
-                console.log(error);
-                res(null);
-            }
-        });           
-        pokemons.movements = movementFormatter.getMovements(pokemon_id);  
-    }
-    return pokemons;
+const pokemonDB = require("../models/pokemon.database");
+const movementsFormatter = require("../getFormatter/movementsFormatter.socket");
+const movementFormatter = require("../getFormatter/movementFormatter.socket");
+
+
+const pokemonFormatToClient = function (pokemon) {
+    this.pokemon_id = pokemon.pokemon_id;
+    this.pokemon_name = pokemon.pokemon_name;
+    this.pokemon_stats_hp = pokemon.pokemon_stats_hp;
+    this.pokemon_stats_speed = pokemon.pokemon_stats_speed;
+    this.pokemon_sprites_front = pokemon.pokemon_sprites_front;
+    this.pokemon_sprites_back = pokemon.pokemon_sprites_back;
+    this.atacs = [];
+    return this;
 }
 
-module.exports = getPokemons()
+exports.getPokemonByIdToClient = (pokemonId, response) => {
+    var pokemon, posibleMoves;
+    pokemonDB.findById(pokemonId, (error, result) => {
+        if (error == null) {
+            pokemon = pokemonFormatToClient(result);
+            console.log("Pokemon: " + pokemon);
+            movementsFormatter.getMovements(pokemonId, (error, result) => {
+                if (error == null){
+                    posibleMoves = result;
+                    movementFormatter.getMovementToClient(posibleMoves[0], (error,result) =>{
+                        if(error == null){
+                            pokemon.atacs.push(result);
+                            movementFormatter.getMovementToClient(posibleMoves[1], (error,result) =>{
+                                if(error == null){
+                                    pokemon.atacs.push(result);
+                                    movementFormatter.getMovementToClient(posibleMoves[2], (error,result) =>{
+                                        if(error == null){
+                                            pokemon.atacs.push(result);
+                                            movementFormatter.getMovementToClient(posibleMoves[3], (error,result) =>{
+                                                if(error == null){
+                                                    pokemon.atacs.push(result);
+                                                    response(pokemon);
+                                                } else {
+                                                    console.log(error);
+                                                    response(error);
+                                                }
+                                            });
+                                        } else {
+                                            console.log(error);
+                                            response(error);
+                                        }
+                                    });
+                                } else {
+                                    console.log(error);
+                                    response(error);
+                                }
+                            });
+                        } else {
+                            console.log(error);
+                            response(error);
+                        }
+                    });
+                } else {
+                    console.log(error);
+                    response(error);
+                }
+            });
+        } else {
+            console.log(error);
+            response(error);
+        }
+    });
+}

@@ -108,6 +108,8 @@ body {
     padding: 10px;
     background-color:  rgb(255, 255, 255);
   }
+  
+
   #abilities button, #jugar{
     background-color: #4CAF50; /* Green */
     border: none;
@@ -128,6 +130,9 @@ body {
     font-family: defaultOne;
     font-size: 14px;
   }
+  #abilities button{
+    display: none;
+  }
   #jugar {
     font-size: 20px;
   }
@@ -146,6 +151,7 @@ body {
 
 
 #abilities{
+ 
   margin-top: 10px;
   background-color: rgba(0, 0, 0, 0.527);
   border: solid;
@@ -161,6 +167,7 @@ body {
   margin-top: 33%;
   border-radius: 10px;
 }
+
 #p2-stats {
   background-color: white;
   border: solid;
@@ -169,11 +176,16 @@ body {
   margin-left: 25%;
   margin-top: 3%;
   border-radius: 10px;
+  display: none;
 }
+
 #battle-map{
   padding: 10px;
 }
 
+#mapa{
+  display: none;
+}
 
 #pokemon1 {
   position: relative;
@@ -188,7 +200,7 @@ body {
   height:300px;
   width: 300px;
   margin-bottom: 16%;
-
+  display: none;
 }
 
 #pokeballs2 {

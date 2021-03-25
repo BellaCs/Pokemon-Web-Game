@@ -1,15 +1,33 @@
-import * as api from "./api.js"
+//import * as api from "./api.js";
+
 export var pokemons=[];
-var userName;
-var userNick;
-randomPokemons();
-document.getElementById("jugar").addEventListener("click", goToPlay);
-function goToPlay(){
-    userName = document.getElementById("nick").value;
-    document.cookie = userName;
-    if (userName != "") {
-        console.log("Correct"); 
-       
+
+var  jugar_btn, 
+        text_input, 
+        user = {nick : ""};
+
+window.onload = function(){
+    //randomPokemons();
+    getDOMElements();
+    addEventListeners();
+}
+
+function getDOMElements(){
+    jugar_btn = document.getElementById("jugar");
+    text_input = document.getElementById("nick");
+}
+
+function addEventListeners(){
+    jugar_btn.addEventListener("click", goToPlay);
+}
+
+function goToPlay(event){
+    console.log(text_input.value);
+    
+    if (text_input.value != "") {
+        user.nick = text_input.value;       
+        console.log(user); 
+        localStorage.setItem("userName", user);
         window.location.href="index.html";
     } else {
         alert("Abans de jugar has de posar un User Name")
