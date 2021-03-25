@@ -202,6 +202,11 @@ function buscarPartida() {
         ProgressBar2.disabled = true;
         ProgressBar1.style.display = "inline";
         ProgressBar2.style.display = "inline";
+        DOMhabilitat1.style.display = "inline-block";
+        DOMhabilitat2.style.display = "inline-block";
+        DOMhabilitat3.style.display = "inline-block";
+        DOMhabilitat4.style.display = "inline-block";
+
         parseUser();
         disableTurn();
         socket.buscarPartida(user, (status) => {
