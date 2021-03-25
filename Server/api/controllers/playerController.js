@@ -8,7 +8,7 @@ exports.create_player = function(req, res){
             let playerId = {
                 "playerId" : result
             }
-            res.json(playerId);
+            res.body(playerId);
         } else {
             res.sendStatus(404);
         }
