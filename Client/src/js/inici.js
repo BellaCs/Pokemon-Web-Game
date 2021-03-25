@@ -27,7 +27,7 @@ function goToPlay(event){
     if (text_input.value != "") {
         user.nick = text_input.value;       
         console.log(user); 
-        localStorage.setItem("userName", user);
+        localStorage.setItem("userName", JSON.stringify(user));
         console.log( JSON.stringify(pokemons));
         localStorage.setItem("pokemons", JSON.stringify(pokemons));
         window.location.href="index.html";
