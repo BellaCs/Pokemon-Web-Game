@@ -1,4 +1,4 @@
-//import * as api from "./api.js";
+import * as api from "./api.js";
 import { connectToSocket } from "./socket.js"
 
 export var pokemons=[];
