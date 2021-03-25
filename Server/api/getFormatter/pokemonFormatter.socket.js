@@ -3,23 +3,27 @@ const movementsFormatter = require("../getFormatter/movementsFormatter.socket");
 const movementFormatter = require("../getFormatter/movementFormatter.socket");
 
 
-const pokemonFormatToClient = function (pokemon) {
-    this.pokemon_id = pokemon.pokemon_id;
-    this.pokemon_name = pokemon.pokemon_name;
-    this.pokemon_stats_hp = pokemon.pokemon_stats_hp;
-    this.pokemon_stats_speed = pokemon.pokemon_stats_speed;
-    this.pokemon_sprites_front = pokemon.pokemon_sprites_front;
-    this.pokemon_sprites_back = pokemon.pokemon_sprites_back;
-    this.atacs = [];
-    return this;
+class pokemonFormatToClient {
+    constructor(pokemon) {
+        this.pokemon_id = pokemon.pokemon_id;
+        this.pokemon_name = pokemon.pokemon_name;
+        this.pokemon_stats_hp = pokemon.pokemon_stats_hp;
+        this.pokemon_stats_speed = pokemon.pokemon_stats_speed;
+        this.pokemon_sprites_front = pokemon.pokemon_sprites_front;
+        this.pokemon_sprites_back = pokemon.pokemon_sprites_back;
+        this.atacs = [];
+        return this;
+    }
 }
 
-const pokemonFormatToClientOponent = function (pokemon) {
-    this.pokemon_id = pokemon.pokemon_id;
-    this.pokemon_name = pokemon.pokemon_name;
-    this.pokemon_stats_hp = pokemon.pokemon_stats_hp;
-    this.pokemon_sprites_front = pokemon.pokemon_sprites_front;
-    return this;
+class pokemonFormatToClientOponent {
+    constructor(pokemon) {
+        this.pokemon_id = pokemon.pokemon_id;
+        this.pokemon_name = pokemon.pokemon_name;
+        this.pokemon_stats_hp = pokemon.pokemon_stats_hp;
+        this.pokemon_sprites_front = pokemon.pokemon_sprites_front;
+        return this;
+    }
 }
 
 exports.getPokemonByIdToClient = (pokemonId, response) => {
