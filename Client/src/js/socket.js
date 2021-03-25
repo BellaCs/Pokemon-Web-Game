@@ -2,18 +2,8 @@ import "../../node_modules/socket.io-client/dist/socket.io";
 import { pokemons } from "./inici.js";
 
 const socket = io("ws://172.24.19.11:3500");
-var jugador =  {
-    "nickname": null,
-    "jugador_pokemons": []
-}; 
-var ataque = {
-    "partida_id": null,
-    "jugador_id": null,
-    "pokemon_id": null,
-    "habilidad_id": null,
-    "objectivo_id": null,
-    "daño_final": null,
-};
+
+var partidaId,userId;
 
 export function connectToSocket(){
     socket.connect();
@@ -22,21 +12,26 @@ export function connectToSocket(){
 
 socket.on('connect', function () {
 
-    socket.on("attackEvent" + partida, function(msg){});
+    socket.on("attackEvent" + partida, (data) => {});
 
-    socket.on("fiPartida" + partida, function(msg){});
+    socket.on("fiPartida" + partida, (data) => {});
 
-    socket.on('disconnect', function () {});
+    socket.on('disconnect', () => {});
 
 });
 
-export var buscarPartida = () =>  {
+export var buscarPartida = (user, result) =>  {
+   
+    socket.emit("buscaPartida", user, function(partida_id, playerId) {
+        console.log(partida_id);
+        partidaId = partida_id;
+        userId = playerId;
+        result("Cercant partida...")
+    });
 
 }
-socket.emit("buscaPartida", jugador, function(partida_id, si) {
-        console.log(partida_id);
-        partida = partida_id
-});
+
+
 
     
 socket.emit("attackEvent", ataque, function(daño_final, si){
