@@ -4,8 +4,9 @@ import * as api from "./api.js";
 
 
 
-var pokeballs, user, pokeballsOponent, pokemonsOponent = [],
+var pokeballs, user, pokemonsOponent = [],
     pokemonImg1, pokemonImg2, pokemonImg3, pokemonImg4, pokemonImg5, pokemonImg6,
+    pokemonImgOponenet1, pokemonImgOponenet2, pokemonImgOponenet3, pokemonImgOponenet4, pokemonImgOponenet5, pokemonImgOponenet6,
     pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6, firstPokemon,
     pokemonOponent1 = {}, pokemonOponent2 = {}, pokemonOponent3 = {}, pokemonOponent4 = {}, pokemonOponent5 = {}, pokemonOponent6 = {},
     pokemonMapaImg, pokemonMapaName, pokemonMapaImgOponent, pokemonMapaNameOponent, mapDisplay, selectedPokemonImg,
@@ -87,32 +88,32 @@ function changeEvent(pokemonTarget) {
             case 1:
                 setPokemonDetails(pokemon1, 1);
                 firstPokemon = pokemon1;
-                selectedPokemonImg = pokemon1;
+                selectedPokemonImg = pokemonImg1;
                 break;
             case 2:
                 setPokemonDetails(pokemon2, 2);
                 firstPokemon = pokemon2;
-                selectedPokemonImg = pokemon2;
+                selectedPokemonImg = pokemonImg2;
                 break;
             case 3:
                 setPokemonDetails(pokemon3, 3);
                 firstPokemon = pokemon3;
-                selectedPokemonImg = pokemon3;
+                selectedPokemonImg = pokemonImg3;
                 break;
             case 4:
                 setPokemonDetails(pokemon4, 4);
                 firstPokemon = pokemon4;
-                selectedPokemonImg = pokemon4;
+                selectedPokemonImg = pokemonImg4;
                 break;
             case 5:
                 setPokemonDetails(pokemon5, 5);
                 firstPokemon = pokemon5;
-                selectedPokemonImg = pokemon5;
+                selectedPokemonImg = pokemonImg5;
                 break;
             case 6:
                 setPokemonDetails(pokemon6, 6);
                 firstPokemon = pokemon6;
-                selectedPokemonImg = pokemon6;
+                selectedPokemonImg = pokemonImg6;
                 break;
             default:
                 break;
@@ -227,7 +228,6 @@ function setPokemonDetails(pokemonToDisplay, pokeSelectId) {
 
 function setPokemonDetailsForOponent(pokemonToDisplay, PokemonRaw) {
     ProgressBar2.max = PokemonRaw.pokemon_stats_hp;
-    selectedPokemonId = pokemonToDisplay.pokemon_id;
     pokemonMapaImgOponent.src = pokemonToDisplay.pokemon_sprites_front;
     pokemonMapaNameOponent.textContent = pokemonToDisplay.pokemon_name;
     ProgressBar2.value = pokemonToDisplay.pokemon_stats_hp;
@@ -244,22 +244,28 @@ function parseUser() {
 }
 
 function setNewOponentPokemon(pokemon) {
-    if (pokemonOponent1.pokemon_id == null)
+    if (pokemonOponent1.pokemon_id == null) {
         pokemonOponent1 = pokemon;
-    else if (pokemonOponent2.pokemon_id == null)
+    }
+    else if (pokemonOponent2.pokemon_id == null) {
         pokemonOponent1 = pokemon;
-    else if (pokemonOponent3.pokemon_id == null)
+    }
+    else if (pokemonOponent3.pokemon_id == null) {
         pokemonOponent1 = pokemon;
-    else if (pokemonOponent4.pokemon_id == null)
+    }
+    else if (pokemonOponent4.pokemon_id == null) {
         pokemonOponent1 = pokemon;
-    else if (pokemonOponent5.pokemon_id == null)
+    }
+    else if (pokemonOponent5.pokemon_id == null) {
         pokemonOponent1 = pokemon;
-    else if (pokemonOponent6.pokemon_id == null)
+    }
+    else if (pokemonOponent6.pokemon_id == null) {
         pokemonOponent1 = pokemon;
+    }
     pokemonsOponent.push(pokemon);
 }
 
-export function enableTurn(){
+export function enableTurn() {
     for (let index = 0; index < pokeballs.length; index++) {
         pokeballs[index].addEventListener("click", changeEvent)
     }
@@ -269,7 +275,7 @@ export function enableTurn(){
     habilitat4.disabled = false;
 }
 
-function disableTurn(){
+function disableTurn() {
     for (let index = 0; index < pokeballs.length; index++) {
         pokeballs[index].removeEventListener("click", changeEvent);
     }

@@ -26,8 +26,7 @@ export function getPokemon(id, callback) {
       
    };
    xmlHttp.onerror = function () {
-      console.log("Hi ha hagut un error en la consulta a l'API");
-      
+      console.log("Hi ha hagut un error en la consulta a l'API"); 
    };
    xmlHttp.send();
 }
