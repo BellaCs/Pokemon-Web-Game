@@ -1,10 +1,10 @@
-import { pokemons } from "./inici.js";
+
 import * as socket from "./socket.js";
 import * as api from "./api.js";
 
 
 
-var pokeballs, user, pokemonsOponent = [],
+var pokeballs, user, pokemonsOponent = [], pokemons,
     pokemonImg1, pokemonImg2, pokemonImg3, pokemonImg4, pokemonImg5, pokemonImg6,
     pokemonImgOponenet1, pokemonImgOponenet2, pokemonImgOponenet3, pokemonImgOponenet4, pokemonImgOponenet5, pokemonImgOponenet6,
     pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6, firstPokemon,
@@ -27,6 +27,7 @@ window.onload = function () {
 
 function getUserFromLocal() {
     user = localStorage.getItem("user");
+    pokemons = JSON.parse(localStorage.getItem("pokemons"));
 }
 
 function setEventListeners() {
@@ -61,6 +62,7 @@ function getDOMElements() {
 }
 
 function loadPokemonToVar() {
+    console.log(pokemons);
     pokemon1 = pokemons[0];
     pokemon2 = pokemons[1];
     pokemon3 = pokemons[2];
@@ -248,19 +250,19 @@ function setNewOponentPokemon(pokemon) {
         pokemonOponent1 = pokemon;
     }
     else if (pokemonOponent2.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent2 = pokemon;
     }
     else if (pokemonOponent3.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent3 = pokemon;
     }
     else if (pokemonOponent4.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent4 = pokemon;
     }
     else if (pokemonOponent5.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent5 = pokemon;
     }
     else if (pokemonOponent6.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent6 = pokemon;
     }
     pokemonsOponent.push(pokemon);
 }
