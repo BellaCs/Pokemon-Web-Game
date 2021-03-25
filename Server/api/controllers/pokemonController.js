@@ -13,3 +13,15 @@ exports.read_pokemon_for_client = function (req, res) {
 
 
 };
+
+exports.read_pokemon_for_client_oponent = function(req, res) {
+    pokemonFormatter.getPokemonByIdToClientOponent(req.params.pokemonId, pokemon => {
+        if (pokemon != undefined) {
+            res.setHeader("Access-Control-Allow-Origin", "*");
+            res.json(pokemon);
+        } else {
+            res.sendStatus(404);
+        }
+        return;
+    });
+}

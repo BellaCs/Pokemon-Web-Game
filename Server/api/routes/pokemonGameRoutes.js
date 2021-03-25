@@ -4,6 +4,8 @@ const gameController = require("../controllers/gameControler");
 
 module.exports = function (app){
     
+    app.route('/pokemonOponent/:pokemonId')
+        .get(pokemonController.read_pokemon_for_client_oponent);
 
     app.route('/pokemonForClient/:pokemonId')
         .get(pokemonController.read_pokemon_for_client);

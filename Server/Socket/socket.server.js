@@ -10,9 +10,9 @@ const io = require("socket.io")(httpServer, {
 var partidaApi = {
     "partida_id": null,
     "jugador_1": null,
-    "jugador_1_pokemons": [],
+    "jugador_1_first_pokemon" : null,
     "jugador_2": null,
-    "jugador_2_pokemons": []
+    "jugador_2_first_pokemon" : null
 };
 
 var cambio = {
@@ -25,56 +25,58 @@ var partidas = [];
 var partidaEnEspera = null;
 
 io.on("connection", socket => {
+
+    let userId;
+    let partidaId;
+
     console.log("jugador conectado \n");
+
     socket.on("buscaPartida", function (user, callback) {
-        let pokemons = [user.player_pokemon1,
-        user.player_pokemon2,
-        user.player_pokemon3,
-        user.player_pokemon4,
-        user.player_pokemon5,
-        user.player_pokemon6
-        ]
         request.post({
             url: "http://localhost:3000/player",
             json: true,
             headers: { 'User-Agent': 'request' },
             body: user
-        }, (err, res, dataUser) => {
+        }, (err, res, data) => {
             if (err) {
                 console.log(err);
             } else if (res.statusCode != 200) {
                 console.log(res.statusCode);
             } else {
+                dataUser = JSON.parse(data);
+                userId = dataUser.playerId;
                 if (partidaEnEspera == null) {
                     request.post({
                         url: "http://localhost:3000/game",
                         json: true,
                         headers: { 'User-Agent': 'request' },
                         body: { "game_player1": data.playerId }
-                    }, (err, res, gameData) => {
+                    }, (err, res, data) => {
                         if (err) {
                             console.log(err);
                         } else if (res.statusCode != 200) {
                             console.log(res.statusCode);
                         } else {
-                            partidaEnEspera = partidaApi;
-                            partidaEnEspera.partida_id = gameData.gameId;
-                            partidaEnEspera.jugador_1 = dataUser.playerId;
-                            partidaEnEspera.jugador_1_pokemons = pokemons;
-                            callback(gameData.gameId, dataUser.playerId);
+                            gameData = JSON.parse(data);
+                            partidaId = gameData.gameId;
+                            setPartidaEnEsperaParameters(1, partidaId, userId, user);
+                            
+                            callback(partidaId ,userId);
                             console.log("Primer jugador connectat");
                         }
                     });
 
                 } else {
-                    partidaEnEspera.jugador_2 = data.playerId;
-                    partidaEnEspera.jugador_2_pokemons = pokemons;
-                    partidas.push(partidaEnEspera);
-                    callback(partidaEnEspera.partida_id, data.playerId);
-                    socket.emit("partidaTrobada" + partidaEnEspera.partida_id, partidaEnEspera);
-                    console.log(partida);
-                    partidaEnEspera = null;
+                    partidaId = partidaEnEspera.partida_id;
+                    setPartidaEnEsperaParameters(2, null, dataUser);
+                    
+                    callback(partidaId, userId);
+                    
                     console.log("Segon jugador connectat");
+
+                    initGame();
+                    
+                    
                 }
             }
         });
@@ -112,7 +114,25 @@ io.on("disconnect", socket => {
     console.log(socket.id);
 });
 
+function setPartidaEnEsperaParameters(playerNumber, partidaId, userId, user) {
+    if (playerNumber == 1) {
+        partidaEnEspera = partidaApi;
+        partidaEnEspera.partida_id = partidaId;
+        partidaEnEspera.jugador_1 = userId;
+        partidaEnEspera.jugador_1_first_pokemon = user.player_first_pokemon;
+    } else if (playerNumber == 2) {
+        partidaEnEspera.jugador_2 = userId;
+        partidaEnEspera.jugador_2_first_pokemon = user.player_first_pokemon;
+    }
+}
 
+function initGame(){
+    socket.emit("partidaTrobada:" + partidaEnEspera.partida_id, partidaEnEspera);
+    partidas.push(partidaEnEspera);
+    console.log(partida);
+    partidaEnEspera = null;
+    console.log("Partida iniciada");
+}
 
 httpServer.listen(3500, () => { });
 

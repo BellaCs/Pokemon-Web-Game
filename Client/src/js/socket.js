@@ -1,5 +1,5 @@
 import "../../node_modules/socket.io-client/dist/socket.io";
-import { pokemons } from "./inici.js";
+import * as gameMap from "./poke.js";
 
 const socket = io("ws://172.24.19.11:3500");
 
@@ -12,9 +12,10 @@ export function connectToSocket(){
 
 socket.on('connect', function () {
 
-    socket.on("attackEvent" + partida, (data) => {});
+    socket.emit("attackEvent", ataque, function(daño_final, si){
+        console.log(daño_final);
+    });
 
-    socket.on("fiPartida" + partida, (data) => {});
 
     socket.on('disconnect', () => {});
 
@@ -26,17 +27,42 @@ export var buscarPartida = (user, result) =>  {
         console.log(partida_id);
         partidaId = partida_id;
         userId = playerId;
-        result("Cercant partida...")
+        setListenersWithIds();
+        result("Cercant partida...");
     });
 
 }
 
+function setListenersWithIds(){
 
+    socket.on("gameFound:" + partidaId, (data) => {
+        changePokemonOnDOM(data.jugador_1, data.jugador_1_first_pokemon);
+        changePokemonOnDOM(data.jugador_2, data.jugador_2_first_pokemon);
+        setTurn(data.jugador_1);
+        gameMap.initGame();
+    });
 
-    
-socket.emit("attackEvent", ataque, function(daño_final, si){
-    console.log(daño_final);
-});
+    socket.on("changeEvent:" + partidaId, (data) => {});
+
+    socket.on("attackEvent:" + partidaId, (data) => {});
+
+    socket.on("fiPartida:" + partidaId, (data) => {});
+}
+
+function changePokemonOnDOM(user_id, pokemonId){
+    if(userId == user_id){
+        gameMap.cambiarPokemon(pokemonId);
+    } else {
+        gameMap.cambiarPokemonOponent(pokemonId);
+    }
+
+}
+
+function setTurn(playerId){
+    if(userId == playerId){
+        gameMap.enableTurn();
+    } 
+}
 
 
 
