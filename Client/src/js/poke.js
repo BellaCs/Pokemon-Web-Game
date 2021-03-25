@@ -1,10 +1,10 @@
-import { pokemons } from "./inici.js";
+
 import * as socket from "./socket.js";
 import * as api from "./api.js";
 
 
 
-var pokeballs, user, pokemonsOponent = [],
+var pokeballs, user, pokemonsOponent = [], pokemons,
     pokemonImg1, pokemonImg2, pokemonImg3, pokemonImg4, pokemonImg5, pokemonImg6,
     pokemonImgOponenet1, pokemonImgOponenet2, pokemonImgOponenet3, pokemonImgOponenet4, pokemonImgOponenet5, pokemonImgOponenet6,
     pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6, firstPokemon,
@@ -27,6 +27,7 @@ window.onload = function () {
 
 function getUserFromLocal() {
     user = localStorage.getItem("user");
+    pokemons = localStorage.getItem("pokemons");
 }
 
 function setEventListeners() {
