@@ -28,7 +28,8 @@ function goToPlay(event){
         user.nick = text_input.value;       
         console.log(user); 
         localStorage.setItem("userName", user);
-        localStorage.setItem("pokemons", pokemons);
+        console.log( JSON.stringify(pokemons));
+        localStorage.setItem("pokemons", JSON.stringify(pokemons));
         window.location.href="index.html";
     } else {
         alert("Abans de jugar has de posar un User Name")

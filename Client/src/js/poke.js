@@ -27,7 +27,7 @@ window.onload = function () {
 
 function getUserFromLocal() {
     user = localStorage.getItem("user");
-    pokemons = localStorage.getItem("pokemons");
+    pokemons = JSON.parse(localStorage.getItem("pokemons"));
 }
 
 function setEventListeners() {
@@ -62,6 +62,7 @@ function getDOMElements() {
 }
 
 function loadPokemonToVar() {
+    console.log(pokemons);
     pokemon1 = pokemons[0];
     pokemon2 = pokemons[1];
     pokemon3 = pokemons[2];
@@ -249,19 +250,19 @@ function setNewOponentPokemon(pokemon) {
         pokemonOponent1 = pokemon;
     }
     else if (pokemonOponent2.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent2 = pokemon;
     }
     else if (pokemonOponent3.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent3 = pokemon;
     }
     else if (pokemonOponent4.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent4 = pokemon;
     }
     else if (pokemonOponent5.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent5 = pokemon;
     }
     else if (pokemonOponent6.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent6 = pokemon;
     }
     pokemonsOponent.push(pokemon);
 }
