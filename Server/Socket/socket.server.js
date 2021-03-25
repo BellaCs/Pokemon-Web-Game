@@ -39,22 +39,37 @@ io.on("connection", socket => {
             json: true,
             headers: { 'User-Agent': 'request' },
             body: user
-        }, (err, res, data) => {
+        }, (err, res, dataUser) => {
             if (err) {
                 console.log(err);
             } else if (res.statusCode != 200) {
                 console.log(res.statusCode);
             } else {
                 if (partidaEnEspera == null) {
-                    partidaEnEspera = partidaApi;
-                    partidaEnEspera.jugador_1 = data.playerId;
-                    partidaEnEspera.jugador_1_pokemons = pokemons;
-                    callback(partidaEnEspera.partida_id, data.playerId);
-                    console.log("Primer jugador connectat");
+                    request.post({
+                        url: "http://localhost:3000/game",
+                        json: true,
+                        headers: { 'User-Agent': 'request' },
+                        body: { "game_player1": data.playerId }
+                    }, (err, res, gameData) => {
+                        if (err) {
+                            console.log(err);
+                        } else if (res.statusCode != 200) {
+                            console.log(res.statusCode);
+                        } else {
+                            partidaEnEspera = partidaApi;
+                            partidaEnEspera.partida_id = gameData.gameId;
+                            partidaEnEspera.jugador_1 = dataUser.playerId;
+                            partidaEnEspera.jugador_1_pokemons = pokemons;
+                            callback(gameData.gameId, dataUser.playerId);
+                            console.log("Primer jugador connectat");
+                        }
+                    });
+
                 } else {
                     partidaEnEspera.jugador_2 = data.playerId;
                     partidaEnEspera.jugador_2_pokemons = pokemons;
-                    partidaEnEspera.push(partidaEnEspera);
+                    partidas.push(partidaEnEspera);
                     callback(partidaEnEspera.partida_id, data.playerId);
                     socket.emit("partidaTrobada" + partidaEnEspera.partida_id, partidaEnEspera);
                     console.log(partida);
@@ -63,8 +78,6 @@ io.on("connection", socket => {
                 }
             }
         });
-
-
     });
 
     socket.on("ataque", function (msg, callback) {

@@ -26,4 +26,17 @@ Game.findById = (GameID, result) => {
         });
 };
 
+Game.create = (data, result) =>
+        mariadb.query("INSERT INTO game SET ?" + data, (err, res) => {
+                if (err) {
+                        result(err, null);
+                        return;
+                }
+
+                if (res.length) {
+                        result(null, res.insertId);
+                        return;
+                }
+        });
+
 module.exports = Game;
