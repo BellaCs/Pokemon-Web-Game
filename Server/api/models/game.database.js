@@ -27,7 +27,8 @@ Game.findById = (GameID, result) => {
 };
 
 Game.create = (data, result) =>
-        mariadb.query(`INSERT INTO game (game_player1) VALUES (${data})`, (err, res) => {
+        //mariadb.query(`INSERT INTO game (game_player1) VALUES ("${data}")`, (err, res) => {
+                mariadb.query("INSERT INTO game (game_player1) VALUES ('2')", (err, res) => {
                 if (err) {
                         result(err, null);
                         return;
