@@ -4,7 +4,7 @@ exports.create_game = (req, res) => {
     console.log(req.body);
     let gameInfo = req.body;
     if(gameInfo == null){res.sendStatus(400)}
-    game.create(gameInfo.game_player1, result =>{
+    game.create(gameInfo, result =>{
         if (result != undefined) {
             let gameId = {
                 "gameId" : result

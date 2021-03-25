@@ -8,7 +8,7 @@ class fillDatabase:
             user = "root",
             password = "",
             host = "localhost",
-            database = "pokemongame"
+            database = "pokemonDB"
         )
 
     
