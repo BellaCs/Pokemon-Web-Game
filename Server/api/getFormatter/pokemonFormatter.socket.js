@@ -32,8 +32,6 @@ exports.getPokemonByIdToClient = (pokemonId, response) => {
         if (error == null) {
             pokemon = new pokemonFormatToClient(result);
             console.log("Pokemon: " + pokemon);
-            response(pokemon);
-            return;
             movementsFormatter.getMovements(pokemonId, (error, result) => {
                 if (error == null) {
                     posibleMoves = result;
@@ -53,6 +51,7 @@ exports.getPokemonByIdToClient = (pokemonId, response) => {
                                                 } else {
                                                     console.log(error);
                                                     response(error);
+                                                    return;
                                                 }
                                             });
                                         } else {
