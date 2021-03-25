@@ -5,10 +5,6 @@ exports.create_player = function(req, res){
     if(playerInfo == null){res.sendStatus(400)}
     player.create(playerInfo, result =>{
         if (result != undefined) {
-            let playerId = {
-                "playerId" : result
-            }
-            res.setHeader("Access-Control-Allow-Origin", "*");
             res.json(playerId);
         } else {
             res.sendStatus(404);
