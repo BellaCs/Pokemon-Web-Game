@@ -6,7 +6,7 @@ import * as api from "./api.js";
 
 var pokeballs, user, pokemonsOponent = [],
     pokemonImg1, pokemonImg2, pokemonImg3, pokemonImg4, pokemonImg5, pokemonImg6,
-    pokemonImgOponenet1, pokemonImgOponenet2, pokemonImgOponenet3, pokemonImgOponenet4, pokemonImgOponenet5, pokemonImgOponenet6,
+    pokemonImgOponenent1, pokemonImgOponenent2, pokemonImgOponenent3, pokemonImgOponenent4, pokemonImgOponenent5, pokemonImgOponenent6,
     pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6, firstPokemon,
     pokemonOponent1 = {}, pokemonOponent2 = {}, pokemonOponent3 = {}, pokemonOponent4 = {}, pokemonOponent5 = {}, pokemonOponent6 = {},
     pokemonMapaImg, pokemonMapaName, pokemonMapaImgOponent, pokemonMapaNameOponent, mapDisplay, selectedPokemonImg,
@@ -57,6 +57,12 @@ function getDOMElements() {
     pokemonImg4 = document.getElementById("pok4");
     pokemonImg5 = document.getElementById("pok5");
     pokemonImg6 = document.getElementById("pok6");
+    pokemonImgOponenent1 = document.getElementById("pokOponenent1");
+    pokemonImgOponenent2 = document.getElementById("pokOponenent2");
+    pokemonImgOponenent3 = document.getElementById("pokOponenent3");
+    pokemonImgOponenent4 = document.getElementById("pokOponenent4");
+    pokemonImgOponenent5 = document.getElementById("pokOponenent5");
+    pokemonImgOponenent6 = document.getElementById("pokOponenent6");
     oponentStatsShow = document.getElementById("p2-stats");
 }
 
@@ -221,9 +227,9 @@ function setPokemonDetails(pokemonToDisplay, pokeSelectId) {
     habilitat3 = pokemonToDisplay.atacs[2];
     habilitat4 = pokemonToDisplay.atacs[3];
     DOMhabilitat1.textContent = habilitat1.movement_name + " \n " + habilitat1.movement_pp + " / " + JSON.parse(pokemons[pokeSelectId - 1]).atacs[0].movement_pp;
-    DOMhabilitat2.textContent = habilitat2.movement_name + " \n " + habilitat1.movement_pp + " / " + JSON.parse(pokemons[pokeSelectId - 1]).atacs[1].movement_pp;
-    DOMhabilitat3.textContent = habilitat3.movement_name + " \n " + habilitat1.movement_pp + " / " + JSON.parse(pokemons[pokeSelectId - 1]).atacs[2].movement_pp;
-    DOMhabilitat4.textContent = habilitat4.movement_name + " \n " + habilitat1.movement_pp + " / " + JSON.parse(pokemons[pokeSelectId - 1]).atacs[3].movement_pp;
+    DOMhabilitat2.textContent = habilitat2.movement_name + " \n " + habilitat2.movement_pp + " / " + JSON.parse(pokemons[pokeSelectId - 1]).atacs[1].movement_pp;
+    DOMhabilitat3.textContent = habilitat3.movement_name + " \n " + habilitat3.movement_pp + " / " + JSON.parse(pokemons[pokeSelectId - 1]).atacs[2].movement_pp;
+    DOMhabilitat4.textContent = habilitat4.movement_name + " \n " + habilitat4.movement_pp + " / " + JSON.parse(pokemons[pokeSelectId - 1]).atacs[3].movement_pp;
 }
 
 function setPokemonDetailsForOponent(pokemonToDisplay, PokemonRaw) {
@@ -246,21 +252,27 @@ function parseUser() {
 function setNewOponentPokemon(pokemon) {
     if (pokemonOponent1.pokemon_id == null) {
         pokemonOponent1 = pokemon;
+        pokemonImgOponenent1.src = pokemon.pokemon_sprites_front;
     }
     else if (pokemonOponent2.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent2 = pokemon;
+        pokemonImgOponenent2.src = pokemon.pokemon_sprites_front;
     }
     else if (pokemonOponent3.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent3 = pokemon;
+        pokemonImgOponenent3.src = pokemon.pokemon_sprites_front;
     }
     else if (pokemonOponent4.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent4 = pokemon;
+        pokemonImgOponenent4.src = pokemon.pokemon_sprites_front;
     }
     else if (pokemonOponent5.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent5 = pokemon;
+        pokemonImgOponenent5.src = pokemon.pokemon_sprites_front;
     }
     else if (pokemonOponent6.pokemon_id == null) {
-        pokemonOponent1 = pokemon;
+        pokemonOponent6 = pokemon;
+        pokemonImgOponenent6.src = pokemon.pokemon_sprites_front;
     }
     pokemonsOponent.push(pokemon);
 }
@@ -283,4 +295,9 @@ function disableTurn() {
     habilitat2.disabled = true;
     habilitat3.disabled = true;
     habilitat4.disabled = true;
+}
+
+function attack(){
+
+    
 }
