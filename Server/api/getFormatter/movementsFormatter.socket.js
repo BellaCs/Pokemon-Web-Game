@@ -1,16 +1,16 @@
-const movementsDB = require("../db/models/extra/movements.database");
+const movementsDB = require("../extra/movements.database");
 
 exports.getMovements = (pokemon_id, result) => {
     var movements = [];
         movementsDB.findById(pokemon_id,(error, results) =>{
-            if(error== null){
+            if(error == null){
                 results.forEach(element => {
                     movements.push(element.movement_id);
                 });
-                result(movements);
+                result(null, movements);
                 return;
             } else{ 
-                console.log(error);
+                console.log(error, null);
                 result(error);
                 return;
             }
