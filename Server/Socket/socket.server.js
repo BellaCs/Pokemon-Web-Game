@@ -129,7 +129,6 @@ function setPartidaEnEsperaParameters(playerNumber, partidaId, userId, user) {
 function initGame(){
     socket.emit("partidaTrobada:" + partidaEnEspera.partida_id, partidaEnEspera);
     partidas.push(partidaEnEspera);
-    console.log(partida);
     partidaEnEspera = null;
     console.log("Partida iniciada");
 }
