@@ -10,7 +10,6 @@ window.onload = function(){
     randomPokemons();
     getDOMElements();
     addEventListeners();
-    
 }
 
 function getDOMElements(){
