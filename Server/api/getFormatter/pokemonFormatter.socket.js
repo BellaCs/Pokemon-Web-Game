@@ -43,7 +43,7 @@ exports.getPokemonByIdToClient = (pokemonId, response) => {
                                             movementFormatter.getMovementToClient(posibleMoves[3], (error, result) => {
                                                 if (error == null) {
                                                     pokemon.atacs.push(result);
-                                                    response(JSON.parse(pokemon));
+                                                    response(pokemon);
                                                 } else {
                                                     console.log(error);
                                                     response(error);
