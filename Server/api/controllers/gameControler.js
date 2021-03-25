@@ -9,7 +9,7 @@ exports.create_game = (req, res) => {
             let gameId = {
                 "gameId" : result
             }
-            res.end(gameId);
+            res.end(JSON.stringify(gameId));
         } else {
             res.sendStatus(404);
         }
