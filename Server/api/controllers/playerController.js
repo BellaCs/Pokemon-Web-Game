@@ -1,0 +1,17 @@
+const player = require("../models/player.database");
+
+exports.create_player = function(req, res){
+    let playerInfo = player(req.body);
+    player.create(playerInfo, result =>{
+        if (result != undefined) {
+            let playerId = {
+                "playerId" : result
+            }
+            res.setHeader("Access-Control-Allow-Origin", "*");
+            res.json(playerId);
+        } else {
+            res.sendStatus(404);
+        }
+        return;
+    });
+}

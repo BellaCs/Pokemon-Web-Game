@@ -1,15 +1,18 @@
 //import * as api from "./api.js";
+import { connectToSocket } from "./socket.js"
 
 export var pokemons=[];
 
 var  jugar_btn, 
         text_input, 
-        user = {nick : ""};
+        user = {player_nickname : ""};
 
 window.onload = function(){
-    //randomPokemons();
+    connectToSocket;
+    randomPokemons();
     getDOMElements();
     addEventListeners();
+    
 }
 
 function getDOMElements(){
