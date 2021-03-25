@@ -34,7 +34,7 @@ exports.getPokemonByIdToClient = (pokemonId, response) => {
             console.log("Pokemon: " + pokemon);
             response(pokemon);
             return;
-           /* movementsFormatter.getMovements(pokemonId, (error, result) => {
+            movementsFormatter.getMovements(pokemonId, (error, result) => {
                 if (error == null) {
                     posibleMoves = result;
                     movementFormatter.getMovementToClient(posibleMoves[0], (error, result) => {
@@ -74,7 +74,7 @@ exports.getPokemonByIdToClient = (pokemonId, response) => {
                     console.log(error);
                     response(error);
                 }
-            });*/
+            });
         } else {
             console.log(error);
             response(error);
