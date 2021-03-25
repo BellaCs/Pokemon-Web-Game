@@ -30,7 +30,7 @@ exports.getPokemonByIdToClient = (pokemonId, response) => {
     var pokemon, posibleMoves;
     pokemonDB.findById(pokemonId, (error, result) => {
         if (error == null) {
-            pokemon = pokemonFormatToClient(result);
+            pokemon = new pokemonFormatToClient(result);
             console.log("Pokemon: " + pokemon);
             response(pokemon);
             return;
@@ -86,7 +86,7 @@ exports.getPokemonByIdToClientOponent = (pokemonId, response) => {
     let pokemon;
     pokemonDB.findById(pokemonId, (error, result) => {
         if (error == null) {
-            pokemon = pokemonFormatToClientOponent(result);
+            pokemon = new pokemonFormatToClientOponent(result);
             console.log("Pokemon: " + pokemon);
             response(pokemon);
         } else {
