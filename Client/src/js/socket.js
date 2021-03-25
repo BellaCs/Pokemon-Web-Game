@@ -1,4 +1,4 @@
-import "./node_modules/socket.io-client/dist/socket.io";
+import "../../node_modules/socket.io-client/dist/socket.io";
 import { pokemons } from "./inici.js";
 
 const socket = io("ws://172.24.19.11:3500");
