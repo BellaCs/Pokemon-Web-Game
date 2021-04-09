@@ -1,6 +1,6 @@
 const pokemonController = require("../controllers/pokemonController");
 const playerController = require("../controllers/playerController");
-const gameController = require("../controllers/gameControler");
+const gameController = require("../controllers/gameController");
 
 module.exports = function (app){
     
