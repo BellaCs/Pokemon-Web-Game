@@ -39,7 +39,7 @@ function goToPlay(event){
 }
 async function randomPokemons(){
     for (let i = 0; i < 6; i++) {
-        let pokemonId = Math.floor(Math.random() * 151 + 1);
+        let pokemonId = Math.floor(Math.random() * 858 + 1);
         await api.getPokemon(pokemonId, result =>{
             pokemons.push(result)
         })
