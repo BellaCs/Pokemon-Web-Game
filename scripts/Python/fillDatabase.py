@@ -13,7 +13,7 @@ class fillDatabase:
 
     
     def savePokemonsDB(self):
-        numGen = 0
+        numGen = 1
         gensList = getPokemons.getGens(getPokemons)
         if not gensList == None:
             for gen in gensList:
