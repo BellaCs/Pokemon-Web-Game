@@ -98,4 +98,4 @@ class fillDatabase:
 
 
 c = fillDatabase()
-c.savePokemonsDB(1)
+c.savePokemonsDB(8)
