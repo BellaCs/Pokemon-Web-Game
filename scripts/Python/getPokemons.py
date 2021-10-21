@@ -6,7 +6,7 @@ class getPokemons:
     def getMovesList(self, gen):
         
         try:
-            response = requests.get("https://pokeapi.co/api/v2/generation/" + gen)
+            response = requests.get(gen)
             firstGenMoves = json.loads(response.text)["moves"]
             return firstGenMoves
         except ValueError:
@@ -17,7 +17,7 @@ class getPokemons:
     def getPokemonList(self, gen):
         
         try:
-            response = requests.get("https://pokeapi.co/api/v2/generation/" + gen)
+            response = requests.get(gen)
             firstGenPokemon = json.loads(response.text)["pokemon_species"]
             return firstGenPokemon
         except ValueError:
@@ -28,7 +28,7 @@ class getPokemons:
     def getTypesList(self, gen):
         
         try:
-            response = requests.get("https://pokeapi.co/api/v2/generation/" + gen)
+            response = requests.get(gen)
             firstGenTypes = json.loads(response.text)["types"]
             return firstGenTypes
         except ValueError:

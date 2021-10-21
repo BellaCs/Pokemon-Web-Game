@@ -5,7 +5,7 @@ class fillDatabase:
 
     def __init__(self):
         self.conn = mariadb.connect(
-            user = "root",
+            user = "mbellavista",
             password = "marc1324",
             host = "localhost",
             database = "pokemonDB"
@@ -13,22 +13,39 @@ class fillDatabase:
 
     
     def savePokemonsDB(self):
-        numGen = 1
+        
         gensList = getPokemons.getGens(getPokemons)
         if not gensList == None:
             for gen in gensList:
-                pokemonList = getPokemons.getPokemonList(getPokemons, str(numGen))
-                movesList = getPokemons.getMovesList(getPokemons, str(numGen))
-                typeList = getPokemons.getTypesList(getPokemons, str(numGen))
-                numGen += 1
+                self.getTypes(gen)
+
+            for gen in gensList:
+                self.getMove(gen)
+
+            for gen in gensList:
+                self.getPokemon(gen)
+                
+                
+       
+
+    def getTypes(self, gen):
+        typeList = getPokemons.getTypesList(getPokemons, gen["url"])
         if not typeList == None:
             for typep in typeList:
                 typeSource = getPokemons.getTypeSource(getPokemons, typep["url"])
                 self.saveTypeInDataBase(typeSource)
+                
+
+    def getMove(self, gen):
+        movesList = getPokemons.getMovesList(getPokemons, gen["url"])
         if not movesList == None:
             for move in movesList:
                 moveSource = getPokemons.getMoveSource(getPokemons, move["url"])
                 self.saveMoveInDataBase(moveSource)
+
+
+    def getPokemon(self, gen):
+        pokemonList = getPokemons.getPokemonList(getPokemons, gen["url"])
         if not pokemonList == None:
             for pokemon in pokemonList:
                 pokemonSpecie = getPokemons.getPokemonSpecie(getPokemons, pokemon["url"])
@@ -38,7 +55,6 @@ class fillDatabase:
                 for move in pokemonMoveList:
                     moveSource = move["move"]
                     self.savePokeMoveInDataBase(moveSource, pokemonSource["id"])
-
 
     def savePokeMoveInDataBase(self,pokeMove,pokemonID):
         cur = self.conn.cursor(dictionary=True)
