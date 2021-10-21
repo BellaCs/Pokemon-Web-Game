@@ -12,10 +12,15 @@ class fillDatabase:
         )
 
     
-    def savePokemonsDB(self, gen):
-        pokemonList = getPokemons.getPokemonList(getPokemons, str(gen))
-        movesList = getPokemons.getMovesList(getPokemons, str(gen))
-        typeList = getPokemons.getTypesList(getPokemons, str(gen))
+    def savePokemonsDB(self):
+        numGen = 0
+        gensList = getPokemons.getGens(getPokemons)
+        if not gensList == None:
+            for gen in gensList:
+                pokemonList = getPokemons.getPokemonList(getPokemons, str(numGen))
+                movesList = getPokemons.getMovesList(getPokemons, str(numGen))
+                typeList = getPokemons.getTypesList(getPokemons, str(numGen))
+                numGen += 1
         if not typeList == None:
             for typep in typeList:
                 typeSource = getPokemons.getTypeSource(getPokemons, typep["url"])
@@ -98,4 +103,4 @@ class fillDatabase:
 
 
 c = fillDatabase()
-c.savePokemonsDB(8)
+c.savePokemonsDB()

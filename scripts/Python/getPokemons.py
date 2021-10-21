@@ -75,3 +75,13 @@ class getPokemons:
             print(response.status_code)
             print(url)
             return None
+
+    def getGens(self):
+        try:
+            response = requests.get("https://pokeapi.co/api/v2/generation/")
+            genSource = json.loads(response.text)
+            return genSource
+        except ValueError:
+            print(response.status_code)
+            print("gens")
+            return None
