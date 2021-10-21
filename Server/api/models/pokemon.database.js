@@ -21,7 +21,6 @@ Pokemon.findById = (PokemonID, result) => {
                 }
 
                 if (res.length) {
-                        console.log("found customer: ", res[0]);
                         result(null, res[0]);
                         return;
                 }

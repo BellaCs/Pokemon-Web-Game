@@ -65,7 +65,6 @@ function getDOMElements() {
 }
 
 function loadPokemonToVar() {
-    console.log(pokemons);
     pokemon1 = JSON.parse(pokemons[0]);
     pokemon2 = JSON.parse(pokemons[1]);
     pokemon3 = JSON.parse(pokemons[2]);
@@ -75,21 +74,19 @@ function loadPokemonToVar() {
 }
 
 function mostrarPokemons() {
-    console.log(pokemon1.pokemon_id);
     pokemonImg1.src = pokemon1.pokemon_sprites_front;
     pokemonImg2.src = pokemon2.pokemon_sprites_front;
     pokemonImg3.src = pokemon3.pokemon_sprites_front;
     pokemonImg4.src = pokemon4.pokemon_sprites_front;
     pokemonImg5.src = pokemon5.pokemon_sprites_front;
     pokemonImg6.src = pokemon6.pokemon_sprites_front;
+    
 }
 
 function changeEvent(pokemonTarget) {
-    console.log("si");
+  
     let pokemonChosed = pokemonTarget.target.name;
-    console.log(pokemonChosed);
     if (playing) {
-
     } else {
         if (selectedPokemonImg != null) selectedPokemonImg.style.backgroundColor = "white";
         switch (pokemonChosed) {
@@ -225,7 +222,6 @@ export function initGame() {
 }
 
 function setPokemonDetails(pokemonToDisplay, pokeSelectId) {
-    console.log("detail" + pokeSelectId);
     ProgressBar1.max = JSON.parse(pokemons[pokeSelectId - 1]).pokemon_stats_hp;
     selectedPokemonId = pokemonToDisplay.pokemon_id;
     pokemonMapaImg.src = pokemonToDisplay.pokemon_sprites_back;

@@ -1,6 +1,6 @@
 export function getPokemon(id, callback) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open('GET', 'http://172.24.19.11:3000/pokemonForClient/' + id, false);
+    xmlHttp.open('GET', 'http://192.168.56.103:3000/pokemonForClient/' + id, false);
     xmlHttp.setRequestHeader('Content-Type', 'application/json');
     xmlHttp.onload = function () {
        //pasem el retorn a la funció callback
@@ -17,7 +17,7 @@ export function getPokemon(id, callback) {
 
  export function getPokemonOponent(id, callback) {
    var xmlHttp = new XMLHttpRequest();
-   xmlHttp.open('GET', 'http://172.24.19.11:3000/pokemonOponent/' + id, false);
+   xmlHttp.open('GET', 'http://192.168.56.103:3000/pokemonOponent/' + id, false);
    xmlHttp.setRequestHeader('Content-Type', 'application/json');
    xmlHttp.onload = function () {
       //pasem el retorn a la funció callback
