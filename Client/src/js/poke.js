@@ -88,22 +88,26 @@ function changeEvent(pokemonTarget) {
     let pokemonChosed = pokemonTarget.target.name;
     if (playing) {
     } else {
-        if (selectedPokemonImg != null) selectedPokemonImg.style.backgroundColor = "white";
+        //if (selectedPokemonImg != null) selectedPokemonImg.style.backgroundColor = "white";
+        reiniciarEstil(pokemonChosed);
         switch (pokemonChosed) {
             case "1":
                 setPokemonDetails(pokemon1, 1);
                 firstPokemon = pokemon1;
                 pokemonImg1.style.backgroundColor = "lightgrey";
+                
                 break;
             case "2":
                 setPokemonDetails(pokemon2, 2);
                 firstPokemon = pokemon2;
                 pokemonImg2.style.backgroundColor = "lightgrey";
+                
                 break;
             case "3":
                 setPokemonDetails(pokemon3, 3);
                 firstPokemon = pokemon3;
                 pokemonImg3.style.backgroundColor = "lightgrey";
+                reiniciarEstil(1);
                 break;
             case "4":
                 setPokemonDetails(pokemon4, 4);
@@ -231,10 +235,10 @@ function setPokemonDetails(pokemonToDisplay, pokeSelectId) {
     habilitat2 = pokemonToDisplay.atacs[1];
     habilitat3 = pokemonToDisplay.atacs[2];
     habilitat4 = pokemonToDisplay.atacs[3];
-    DOMhabilitat1.textContent = habilitat1.movement_name + " \\n " + habilitat1.movement_pp + "/" + JSON.parse(pokemons[pokeSelectId - 1]).atacs[0].movement_pp;
-    DOMhabilitat2.textContent = habilitat2.movement_name + " \\n " + habilitat2.movement_pp + "/" + JSON.parse(pokemons[pokeSelectId - 1]).atacs[1].movement_pp;
-    DOMhabilitat3.textContent = habilitat3.movement_name + " \\n " + habilitat3.movement_pp + "/" + JSON.parse(pokemons[pokeSelectId - 1]).atacs[2].movement_pp;
-    DOMhabilitat4.textContent = habilitat4.movement_name + " \\n " + habilitat4.movement_pp + "/" + JSON.parse(pokemons[pokeSelectId - 1]).atacs[3].movement_pp;
+    DOMhabilitat1.innerHTML = habilitat1.movement_name + "<br>" + habilitat1.movement_pp + "/" + JSON.parse(pokemons[pokeSelectId - 1]).atacs[0].movement_pp;
+    DOMhabilitat2.innerHTML = habilitat2.movement_name + "<br>" + habilitat2.movement_pp + "/" + JSON.parse(pokemons[pokeSelectId - 1]).atacs[1].movement_pp;
+    DOMhabilitat3.innerHTML = habilitat3.movement_name + "<br>" + habilitat3.movement_pp + "/" + JSON.parse(pokemons[pokeSelectId - 1]).atacs[2].movement_pp;
+    DOMhabilitat4.innerHTML = habilitat4.movement_name + "<br>" + habilitat4.movement_pp + "/" + JSON.parse(pokemons[pokeSelectId - 1]).atacs[3].movement_pp;
 }
 
 function setPokemonDetailsForOponent(pokemonToDisplay, PokemonRaw) {
