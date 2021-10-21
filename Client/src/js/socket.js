@@ -1,7 +1,7 @@
-import "../../node_modules/socket.io-client/dist/socket.io.js";
+import "../socket.io-client/dist/socket.io.js";
 import * as gameMap from "./poke.js";
 
-const socket = io("ws://172.24.19.11:3500");
+const socket = io("ws://192.168.56.103:3500");
 
 var partidaId,userId;
 

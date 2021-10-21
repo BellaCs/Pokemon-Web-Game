@@ -11,7 +11,6 @@ class movementToClient {
 exports.getMovementToClient = (movement_id, response) => {
         movementDB.findById(movement_id,(error, result) =>{
             if(error == null){
-                console.log("Moviment: " + result);
                 response(null,new movementToClient(result));
                 return;
             }else{
