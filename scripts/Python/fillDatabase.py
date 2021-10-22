@@ -101,7 +101,7 @@ class fillDatabase:
                 self.conn.commit()
     
     def savePokemonInDataBase(self, pokemon):
-        if not pokemon == None:
+        if not pokemon == None and not pokemon["moves"] == None:
             cur = self.conn.cursor()
             id = pokemon["id"]
             name = pokemon["name"]
