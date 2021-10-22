@@ -50,11 +50,12 @@ class fillDatabase:
             for pokemon in pokemonList:
                 pokemonSpecie = getPokemons.getPokemonSpecie(getPokemons, pokemon["url"])
                 pokemonSource = getPokemons.getPokemonSource(getPokemons, pokemonSpecie["name"])
-                self.savePokemonInDataBase(pokemonSource)
-                pokemonMoveList = pokemonSource["moves"]
-                for move in pokemonMoveList:
-                    moveSource = move["move"]
-                    self.savePokeMoveInDataBase(moveSource, pokemonSource["id"])
+                if not pokemonSource == None and not pokemonSpecie == None:
+                    self.savePokemonInDataBase(pokemonSource)
+                    pokemonMoveList = pokemonSource["moves"]
+                    for move in pokemonMoveList:
+                        moveSource = move["move"]
+                        self.savePokeMoveInDataBase(moveSource, pokemonSource["id"])
 
     def savePokeMoveInDataBase(self,pokeMove,pokemonID):
         if not pokeMove == None:
